@@ -1,0 +1,278 @@
+<!-- BEGIN IF_IS_CONNECTE -->
+<section class="row">
+	<!-- BEGIN CHARACTERS -->
+		<!-- BEGIN FIRST -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+			<div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+                <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Personnage(s)</h1>
+				<a href="/Compte/Coffre" title="Apperçu de vos coffres" class="btn btn-danger"><i class="fas fa-treasure-chest"></i> Warehouse</a>
+            </div>
+            <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-1 pb-0 pt-1 pr-1">
+					<!-- BEGIN LISTE_PERSOS -->
+                    <div class="d-inline">
+                        <a href="/Compte/Personnages-{IF_IS_CONNECTE.CHARACTERS.FIRST.LISTE_PERSOS.ID}" data-toggle="tooltip" data-placement="bottom" title="{IF_IS_CONNECTE.CHARACTERS.FIRST.LISTE_PERSOS.PSEUDO}">
+                            <img src="{IF_IS_CONNECTE.CHARACTERS.FIRST.LISTE_PERSOS.IMG}" />
+                        </a>
+                    </div>
+                    <!-- END LISTE_PERSOS -->
+                </div>
+                <hr class="w-100 mt-1" />
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-4 p-1">
+                    <div class="card W-100">
+                        <div class="p-2 d-flex justify-content-between h-100">
+                            <span class="h-100">
+                               <img src="{IF_IS_CONNECTE.CHARACTERS.FIRST.IMG_CLASSE}" class="border w-auto"> 
+                            </span>
+                            <div class="h-100">
+                                {IF_IS_CONNECTE.CHARACTERS.FIRST.CLASSE}  
+                                <div class="mt-2">
+                                    {IF_IS_CONNECTE.CHARACTERS.FIRST.LOGO_GUILDE} 
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="card-title m-3 d-flex justify-content-between">
+                            <span>
+                                <i class="fas fa-helmet-battle"></i> {IF_IS_CONNECTE.CHARACTERS.FIRST.PSEUDO}
+                            </span>
+                        </h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Level :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.LEVEL}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Master Level :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.MASTER_LEVEL}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Renaissance :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.RESET}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Génération :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.GENERATION}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Héritage :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.HERITAGE}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Évolution :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.EVOLUTION}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Super Génération :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.SUPER_GENERATION}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Super Héritage :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.SUPER_HERITAGE}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Super Évolution :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.SUPER_EVOLUTION}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Force :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.FORCE}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Agilité :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.AGILITE}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Vitalité :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.VITALITE}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">Energie :<span class="badge badge-primary badge-pill">{IF_IS_CONNECTE.CHARACTERS.FIRST.ENERGIE}</span></li>
+                        </ul>
+                     </div>
+                </div>
+                <form class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-4 p-1" action="{URL}" method="POST">
+                    <input type="hidden" value="{IF_IS_CONNECTE.CHARACTERS.FIRST.PSEUDO}" name="pseudo" />
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Renaissance (R)
+                                <button type="submit" title="Effectuer une renaissance (Irréversible)" name="renaissance" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_RESETS -->
+                                    disabled
+                                <!-- END IF_PAS_RESETS -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Génération (G)
+                                <button type="submit" name="generation" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Héritage (H)
+                                <button type="submit" name="heritage" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Evolution (E)
+                                <button type="submit" name="evolution" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Super Génération (SG)
+                                <button type="submit" name="superGeneration" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_SUPER_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_SUPER_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Super Héritage (SH)
+                                <button type="submit" name="superHeritage" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_SUPER_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_SUPER_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Super Evolution (SE)
+                                <button type="submit" name="superEvolution" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"
+                                <!-- BEGIN IF_PAS_SUPER_GHE -->
+                                    disabled
+                                <!-- END IF_PAS_SUPER_GHE -->
+                                ></button>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Ajout de stat
+                                <button type="button" title="Ajouter des points de stat à votre personnage" data-toggle="modal" data-target="#addStat" class="btn btn-secondary fas fa-check"></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                Téléportation
+                                <button type="button" title="Portail de téléportation"  data-toggle="modal" data-target="#Teleportation"  class="btn btn-secondary fas fa-check"></button>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item ">
+                            <div class="d-flex justify-content-between align-items-center text-danger">
+                                <i class="fas fa-trash"></i> Supprimer le personnage
+                                <button type="submit" title="Supprimer le personnage (Irréversible)" name="deletePerso" class="btn btn-secondary fas fa-check ConfirmeActions" value="true"></button>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="modal fade" id="addStat" tabindex="-1" role="dialog" aria-labelledby="addStatistique" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addStatistique">
+                                        <i class="fas fa-plus-circle"></i> Ajouter des statistiques à votre personnage
+                                    </h5>
+                                    <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+                                </div>
+                                <div class="modal-body">
+                                    En construction
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="Teleportation" tabindex="-1" role="dialog" aria-labelledby="TeleportationPerso" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="TeleportationPerso">
+                                        <i class="fas fa-map-signs"></i> Portail de téléportation
+                                    </h5>
+                                    <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="map">Sélectionner l'endroit souhaité</label>
+                                        <select name="map" class="form-control" id="map">
+                                            <option value="lorencia">Lorencia</option>
+                                            <option value="noria">Noria</option>
+                                            <option value="elbeland">Elbeland</option>
+                                            <option value="devias">Devias</option>
+                                            <option value="dungeon">Dungeon</option>
+                                            <option value="atlans">Atlans</option>
+                                            <option value="lost_tower">Lost Tower</option>
+                                            <option value="tarkan">Tarkan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Téléporter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-0 mb-4 p-1" >
+                    <!-- BEGIN INVENTAIRE_PRINCIPAL -->
+						{IF_IS_CONNECTE.CHARACTERS.FIRST.INVENTAIRE_PRINCIPAL.INVENTORY}  
+                    <!-- END INVENTAIRE_PRINCIPAL -->
+                    <!-- BEGIN FRIENDS -->
+                    <div class="bg-light mt-2 border">
+                        <h5 class="ml-2 mt-2"><i class="far fa-arrow-alt-square-right"></i> Amis de votre personnage [{IF_IS_CONNECTE.CHARACTERS.FIRST.PSEUDO}]</h5>
+                        <hr class="m-0" />
+                        <div class="d-flex flex-wrap">
+                            <!-- BEGIN LISTE -->
+                            <a href="/Compte/Messagerie/Nouveau-{IF_IS_CONNECTE.CHARACTERS.FIRST.FRIENDS.LISTE.PSEUDO_AMIS}" data-toggle="tooltip" data-placement="bottom" title="Envoyer un message à {IF_IS_CONNECTE.CHARACTERS.FIRST.FRIENDS.LISTE.PSEUDO_AMIS}" class="position-relative p-1">
+                                <img src="{IF_IS_CONNECTE.CHARACTERS.FIRST.FRIENDS.LISTE.AVATAR}" width="50" />
+                                <span class="position-absolute top-0 right-0 p-1">
+                                    <img src="{IF_IS_CONNECTE.CHARACTERS.FIRST.FRIENDS.LISTE.CLASSE}" width="25" />
+                                </span>
+                            </a>
+                            <!-- END LISTE -->
+                        </div>
+                    </div>
+                    <!-- END FRIENDS -->
+                </div>
+            </div>
+        </div>
+        <!-- END FIRST -->
+    <!-- END CHARACTERS -->
+    <!-- BEGIN NOT_CHARACTERS -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Aucun personnage</h1>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-1 pb-0 pt-1 pr-1"> 
+                <h5><i class="far fa-arrow-alt-square-right"></i> Créer votre premier personnage</h5>
+                <p>Le personnage sera visible dès lors de votre connexion au jeu.</p>
+                <div class="d-flex flex-wrap">
+                    <span class="select-class m-1 d-block cursor-pointer" id="wiz">
+                        <img src="/../themes/assets/images/class/wiz.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="dk">
+                        <img src="/../themes/assets/images/class/dk.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="elf">
+                        <img src="/../themes/assets/images/class/elf.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="sum">
+                        <img src="/../themes/assets/images/class/sum.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="mg">
+                        <img src="/../themes/assets/images/class/mg.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="dl">
+                        <img src="/../themes/assets/images/class/dl.gif" />
+                    </span>
+                    <span class="select-class m-1 d-block cursor-pointer" id="rf"> 
+                        <img src="/../themes/assets/images/class/rf.gif" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="selected-class"></div>
+    </div>
+    <!-- END NOT_CHARACTERS -->
+</section>
+<!-- END IF_IS_CONNECTE -->
+<!-- BEGIN IF_PAS_CONNECTE -->
+<script  type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function(event) {	
+        document.getElementById('Login').style.display='block';
+        document.getElementById('Login').classList.add('show');
+        document.getElementsByClassName('fa-times')[0].classList.add('d-none');
+        document.getElementsByClassName('container')[0].innerHTML ='<div class="modal-backdrop fade show"></div>';
+    });
+</script>
+<!-- END IF_PAS_CONNECTE -->

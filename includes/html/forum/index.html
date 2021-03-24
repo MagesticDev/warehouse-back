@@ -1,0 +1,43 @@
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Forum de discussion</h1>
+            <!-- BEGIN IF_IS_ADMIN -->
+            <a href="#" class="btn btn-success">Ajouter une section</a>
+            <!-- END IF_IS_ADMIN -->
+        </div>
+        <!-- BEGIN CATEGORIES -->
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4 mb-4">
+                <h5><i class="far fa-arrow-alt-square-right"></i> {CATEGORIES.TITRE}</h5>
+                <p>{CATEGORIES.DESCRIPTION}</p>
+                <!-- BEGIN FORUMS -->
+                <a href="/Forum/section-{CATEGORIES.FORUMS.NOM_URL}-{CATEGORIES.FORUMS.ID}" class="bg-custom border row not-decoration" tabindex="-1">
+                    <div class="col-xl-1 col-lg-1 col-md-1 d-none d-md-flex d-lg-flex d-xl-flex align-items-center justify-content-center">
+                        <h2 class="fa fa-comments p-0 m-1"></h2>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex align-items-center">
+                        <div>
+                            <h6 class="p-0 m-1">{CATEGORIES.FORUMS.TITRE}</h6>
+                            <p class="p-0 m-1">{CATEGORIES.FORUMS.DESCRIPTION}</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 d-none d-md-flex d-lg-flex d-xl-flex  align-items-center justify-content-center">
+                        <p class="p-0 m-1">{CATEGORIES.FORUMS.NBR_SU} Sujet(s)</p>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 d-none d-md-flex d-lg-flex d-xl-flex align-items-center">
+                        <div>
+                            <img class="avatar border" src="{CATEGORIES.FORUMS.AVATAR}" /> 
+                        </div>
+                        <div class="pl-2">
+                            {CATEGORIES.FORUMS.DERNIER_POST}
+                        </div>
+                    </div>
+                </a>
+                <!-- END FORUMS -->
+            </div>
+        </div>
+        <!-- END CATEGORIES -->
+    </div>
+</section>
+            

@@ -1,0 +1,35 @@
+<!-- BEGIN IF_IS_CONNECTE -->
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> SUPPORT TECHNIQUE</h1>
+            <a href="/Support" class="btn btn-success">Retour aux tickets</a>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-4 mt-2">
+                <h3><i class="far fa-arrow-alt-square-right"></i> RÈGLES DE BASE DU SUPPORT !</h3> 
+                <ul class="list-group">
+                    <li><i class="fal fa-arrow-square-right"></i> Votre ticket doit être compréhensible (pas de SMS, pas d'abus de majuscule ou de ponctuation).</li>
+                    <li><i class="fal fa-arrow-square-right"></i> Merci d'éviter les tickets en double pour un même sujet.</li>
+                    <li><i class="fal fa-arrow-square-right"></i> Deux problèmes distincts doivent faire l'objet de deux tickets différents. </li>
+                    <li><i class="fal fa-arrow-square-right"></i> Le flood dans cette section sera sévèrement puni.</li>
+                    <li><i class="fal fa-arrow-square-right"></i> Un minimum de politesse est exigé. Restez calme, aimable et courtois.</li>
+                </ul>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-4 mb-4">
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END IF_IS_CONNECTE -->
+<!-- BEGIN IF_PAS_CONNECTE -->
+<script  type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function(event) {	
+        document.getElementById('Login').style.display='block';
+        document.getElementById('Login').classList.add('show');
+        document.getElementsByClassName('fa-times')[0].classList.add('d-none');
+        document.getElementsByClassName('container')[0].innerHTML ='<div class="modal-backdrop fade show"></div>';
+    });
+</script>
+<!-- END IF_PAS_CONNECTE -->

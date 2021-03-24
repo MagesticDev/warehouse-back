@@ -1,0 +1,50 @@
+<script type="text/javascript">
+	function ticketParNumero() {
+		function is_numeric( mixed_var ) {
+			return !isNaN(parseInt(mixed_var));
+		}
+	
+		var numero = prompt('Veuillez entrer le numéro du ticket : ', '');
+		if(!is_numeric(numero) || numero <= 0) {
+			alert('Numéro invalide');
+			return;
+		}
+		
+		window.location.replace('/Administration/Tickets/' + numero);
+	}
+</script>
+<div class="table-responsive">
+
+							<table class="table bg-light border">
+								<thead>
+									<tr>
+										<th scope="col" class="border">#</th>
+										<th scope="col" class="border">Ticket numéro</th>
+										<th scope="col" class="border">Type</th>
+										<th scope="col" class="border">Objet</th>
+										<th scope="col" class="border">Statut</th>
+										<th scope="col" class="border">Menu</th>
+									</tr>
+								</thead>
+								<tbody>
+								<!-- BEGIN TICKET -->
+									<tr>
+										<td class="border">
+											{TICKET.RAND}	
+										</td>
+										<td scope="row" class="border">{TICKET.NUMERO}</td>
+										<td class="border">{TICKET.TYPE}</td>
+										<td class="border">{TICKET.TITRE}</td>
+										<td class="border">{TICKET.STATUS}</td>
+										<td>
+											<button class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" title="Afficher" name="afficher" value="{TICKET.NUMERO}"><i class="fa fa-file-text-o"></i></button>
+											<button class="btn btn-inverse btn-circle btn-sm" data-toggle="tooltip" title="Marquer comme résolu" name="resolu"><i class="fa fa-bookmark"></i></button>
+											<button class="btn btn-inverse btn-circle btn-sm" data-toggle="tooltip" title="Archiver" name="archiver"><i class="fa fa-archive"></i></button>
+											<button onclick='if(confirm("Êtes vous sûr de vouloir supprimer ce ticket ? Les administrateurs ne pourront plus y avoir accès une fois celui-ci supprimé !")) this.form.submit();' data-toggle="tooltip" title="Supprimer" name="supprimer" value="{TICKET.NUMERO}"><i class="fas fa-trash-alt"></i></button>
+										</td>                          
+									</tr>
+								<!-- END TICKET -->
+								</tbody>
+							</table>	
+</div>
+		

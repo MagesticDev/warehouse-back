@@ -1,0 +1,507 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-1 pr-1 pb-2">
+        <!-- BEGIN IF_SEARCH -->
+        <h5><i class="far fa-arrow-alt-square-right"></i> Gestion des personnages</h5>
+        <p>Entrer dans la barre de recherche ci-dessous le nom du personnage à administrer.</p>
+        <form action="{URL}" method="POST">
+            <ul class="list-group mb-4">
+                <li class="list-group-item">
+                    <label for="pseudo">Pseudo</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" ><i class="fas fa-gamepad"></i></span>
+                        </div>
+                        <input type="text" name="pseudo"  class="form-control" id="pseudo" placeholder="Pseudo du personnage*" required>
+                    </div>
+                    <input type="submit" class="btn btn-success" name="passwordSubmit" value="Valider" />
+                </li>
+            </ul>
+        </form>
+        
+        <div class="row p-0 m-0">
+            <!-- BEGIN CHARACTERS -->
+            <a href="/Administration/Characters-{IF_SEARCH.CHARACTERS.PSEUDO}" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 p-1">
+                <ul class="list-group list-group-item-action">
+                    <li class="list-group-item"><img src="{IF_SEARCH.CHARACTERS.CLASS}" /></li>
+                    <li class="list-group-item"><h3>{IF_SEARCH.CHARACTERS.PSEUDO}</h3></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Level <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.LEVEL}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Master Level <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.M_LEVEL}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Renaissance <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.RESETS}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Génération <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.GENERATION}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Héritage <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.HERITAGE}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Évolution <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.EVOLUTION}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Super Génération <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.SUPER_GENERATION}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Super Héritage <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.SUPER_HERITAGE}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Super Évolution <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.SUPER_EVOLUTION}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Force <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.FORCE}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Agilité <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.AGILITE}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Vitalité <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.VITALITE}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">Energie <span class="badge badge-primary badge-pill">{IF_SEARCH.CHARACTERS.ENERGIE}</span></li>
+                </ul>
+            </a>
+            <!-- END CHARACTERS -->
+        </div>
+        <!-- END IF_SEARCH -->
+        <!-- BEGIN CHARACTERS_VIEW -->
+        <h5><i class="far fa-arrow-alt-square-right"></i> Modifier le personnage {CHARACTERS_VIEW.PSEUDO}</h5>
+        <p>Les changements doivent être justifiés.</p>
+       
+        <div class="bg-light border w-auto">
+            <a href="#" data-toggle="modal" data-target="#admin" class="btn btn-danger m-1">Game Master</a>
+            <a href="{URL}/Quest" class="btn btn-primary m-1">Quêtes</a>
+            <a href="{URL}/Classe" class="btn btn-primary m-1">Classe, Gens, Guilde, Bannissement</a>
+            <a href="{URL}/Mariage" class="btn btn-primary m-1">Mariage</a>
+            <a href="{URL}/Items" class="btn btn-primary m-1">Items / Skills</a>
+        </div>
+        <form action="{URL}" method="POST">
+            <div class="row p-0 m-0">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 bg-light p-2"> 
+                    <div class="row p-0">
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            <img class="d-block" src="{CHARACTERS_VIEW.CLASSE}" />
+                            <a href="#" title="Mettre le personnage full statistique" class="btn btn-success mt-2 full p-1">Full All</a>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="level">Level</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="level" max="400"  class="form-control fullable" id="level" placeholder="Level" value="{CHARACTERS_VIEW.LEVEL}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="mLevel">Master Level</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="mLevel" max="333"  class="form-control fullable" id="mLevel" placeholder="Master Level" value="{CHARACTERS_VIEW.MASTER_LEVEL}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="mLevelPoint">Master Level Point</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="mLevelPoint" max="333"  class="form-control fullable" id="mLevelPoint" placeholder="Master Level Point" value="{CHARACTERS_VIEW.MASTER_LEVEL_POINT}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="stats">Points de stats à ajouter</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="stats" max="120000"  class="form-control fullable" id="stats" placeholder="Point de stat à ajouter" value="{CHARACTERS_VIEW.NBR_POINT}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="str">Force</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="str" max="32000"  class="form-control fullable" id="str" placeholder="Force" value="{CHARACTERS_VIEW.FORCE}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="vit">Vitalité</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="vit" max="32000"  class="form-control fullable" id="vit" placeholder="Vitalité" value="{CHARACTERS_VIEW.VITALITY}" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="agi">Agilité</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="agi" max="32000"  class="form-control fullable" id="agi" placeholder="Agilité" value="{CHARACTERS_VIEW.AGILITY}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="ene">Energie</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="ene" max="32000"  class="form-control fullable" id="ene" placeholder="Energie" value="{CHARACTERS_VIEW.ENERGY}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="commande">Commande</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="commande" max="32000"  class="form-control fullable" id="commande" placeholder="Commande" value="{CHARACTERS_VIEW.COMMANDE}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="resets">Renaissance</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="resets"  class="form-control" id="resets" placeholder="Renaissance" value="{CHARACTERS_VIEW.RESETS}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/>  
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="generation">Génération</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="generation"  class="form-control" id="generation" placeholder="Génération" value="{CHARACTERS_VIEW.GENERATION}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="heritage">Héritage</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="heritage"  class="form-control" id="heritage" placeholder="Héritage" value="{CHARACTERS_VIEW.HERITAGE}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="evolution">Evolution</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="evolution"  class="form-control" id="evolution" placeholder="Evolution" value="{CHARACTERS_VIEW.EVOLUTION}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/> 
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="SuperGeneration">Super Génération</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="SuperGeneration"  class="form-control" id="SuperGeneration" placeholder="Super Génération" value="{CHARACTERS_VIEW.SUPER_GENERATION}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="SuperHeritage">Super Héritage</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="SuperHeritage"  class="form-control" id="SuperHeritage" placeholder="Super Héritage" value="{CHARACTERS_VIEW.SUPER_HERITAGE}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="SuperEvolution">Super Evolution</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number"  name="SuperEvolution"  class="form-control" id="SuperEvolution" placeholder="Super Héritage" value="{CHARACTERS_VIEW.SUPER_EVOLUTION}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/> 
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="zen">Extension d'inventaire</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <select name="expansion" class="form-control">
+                                            <option value="0"
+                                            <!-- BEGIN OFF_EXPANSION -->
+                                            selected
+                                            <!-- END OFF_EXPANSION -->
+                                            >OFF</option>
+                                            <option value="1"
+                                            <!-- BEGIN LVL1_EXPANSION -->
+                                            selected
+                                            <!-- END LVL1_EXPANSION -->
+                                            >Level 1</option>
+                                            <option value="2"
+                                            <!-- BEGIN LVL2_EXPANSION -->
+                                            selected
+                                            <!-- END LVL2_EXPANSION -->
+                                            >Level 2</option>
+                                        </select> 
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/> 
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <label for="zen">Zens</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                        </div>
+                                        <input type="number" name="zen" max="2000000000"  class="form-control fullable" id="zen" placeholder="Zens" value="{CHARACTERS_VIEW.ZEN}" required>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <hr class="w-100"/> 
+                        
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-4 p-0">
+                            
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 p-0">
+                            <input type="submit" name="submitCharacter" class="btn btn-success w-100" value="Sauvegarder">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="admin-modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="admin-modal">
+                            Administrateur
+                        </h5>
+                        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+                    </div>
+                    <form action="{URL}" method="POST">
+                        <div class="modal-body">
+                            <label for="statut">Statut</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                </div>
+                                <select id="statut" name="statut" class="form-control" required>
+                                    <option value="0"
+                                    <!-- BEGIN NORMAL_STATUT -->
+                                    selected
+                                    <!-- END NORMAL_STATUT -->
+                                    >Normal</option>
+                                    <option value="8"
+                                    <!-- BEGIN GM_STATUT -->
+                                    selected
+                                    <!-- END GM_STATUT -->
+                                    >Game Master</option>
+                                    <option value="32"
+                                    <!-- BEGIN SUPER_ADMINISTRATEUR_STATUT -->
+                                    selected
+                                    <!-- END SUPER_ADMINISTRATEUR_STATUT -->
+                                    >Administrateur Supérieur</option>
+                                </select>
+                            </div>
+                            <label for="expire">Expiration</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" ><i class="fas fa-arrow-square-right"></i></span>
+                                </div>
+                                <input type="date" value="{EXPIRATION}" class="form-control" name="expiration_statut"/>
+                            </div>
+                            <label for="expire">Droits</label>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkAll">
+                                    <label class="form-check-label" for="checkAll">Tout cocher</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="events_statut" id="eventManagement">
+                                    <label class="form-check-label" for="eventManagement">Management d'events</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="cdm_statut" id="cdmManagement">
+                                    <label class="form-check-label" for="cdmManagement">ChatBan/Disconnect/Move</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="fireworks_statut" id="fireworksManagement">
+                                    <label class="form-check-label" for="fireworksManagement">Fireworks command</label>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="items_statut" id="itemsManagement">
+                                    <label class="form-check-label" for="itemsManagement">/Item</label>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="Hide_statut" id="HideManagement">
+                                    <label class="form-check-label" for="HideManagement">/Hide</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="InvisibleToMonster_statut" id="InvisibleToMonsterManagement">
+                                    <label class="form-check-label" for="InvisibleToMonsterManagement">Invisible to monster</label>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="Ban_statut" id="BanManagement">
+                                    <label class="form-check-label" for="BanManagement">/Ban</label>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="Skin_statut" id="SkinManagement">
+                                    <label class="form-check-label" for="SkinManagement">/Skin</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="BattleSoccer_statut" id="BattleSoccerManagement">
+                                    <label class="form-check-label" for="BattleSoccerManagement">Battle Soccer commands</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="PK_statut" id="PKManagement">
+                                    <label class="form-check-label" for="PKManagement">PK Set command</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="Guild_statut" id="GuildManagement">
+                                    <label class="form-check-label" for="GuildManagement">Guild command</label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 form-group form-check">
+                                    <input type="checkbox" class="form-check-input" name="GMShop_statut" id="GMShopManagement">
+                                    <label class="form-check-label" for="GMShopManagement">GM Shop Access</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <input type="submit" name="submit_statut" class="btn btn-primary" value="Sauvegarder">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- END CHARACTERS_VIEW -->
+    </div>
+</div>

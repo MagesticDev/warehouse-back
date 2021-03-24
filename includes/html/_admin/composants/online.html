@@ -1,0 +1,53 @@
+<h5><i class="far fa-arrow-alt-square-right"></i> Gestion des joueurs en ligne</h5>
+<p>en cours...</p><br />
+Un petit bouton sympas pour deco tout le monde :) <a href="/Administration/Online" class="btn btn-danger w-100">pas dispo encore</a>
+<br /><br /><br />
+<!-- BEGIN ONLINE -->
+<div class="table-responsive">
+    <table class="table bg-light border">
+        <thead>
+            <tr>
+                <th scope="col" class="border">
+                    #
+                </th>
+                <th scope="col" class="border">
+                    Pseudo
+                </th>
+                <th scope="col" class="border">
+                    Map
+                </th>
+                <th scope="col" class="border">
+                    Heure de connexion
+                </th>
+				<th scope="col" class="border">
+                    Gestion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN LISTE -->
+            <tr>
+                <th scope="row" class="border">
+                    {ONLINE.LISTE.ID}
+                </th>
+                <td class="border">
+                    <div class="d-flex align-items-center">
+                        {ONLINE.LISTE.PSEUDO}
+                    </div>
+                </td>
+                <td class="border">
+                    <a href="/Guide/Maps/{ONLINE.LISTE.MAP}" title="Consulter le guide">{ONLINE.LISTE.MAP}</a>
+                </td>
+                <td class="border">
+                    {ONLINE.LISTE.DATE}
+                </td>
+				<td class="border">
+                    <i title="Deconnexion" class="fas fa-power-off"></i>
+					<i title="Teleporter" class="fas fa-map-marker-alt"></i>
+                </td>
+            </tr>
+            <!-- END LISTE -->
+        </tbody>
+    </table>
+</div>
+<!-- END ONLINE --> 

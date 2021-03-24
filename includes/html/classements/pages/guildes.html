@@ -1,0 +1,49 @@
+<!-- BEGIN GUILDS -->
+<div class="table-responsive">
+    <table class="table bg-light border">
+        <thead>
+            <tr>
+                <th scope="col" class="border">
+                    #
+                </th>
+                <th scope="col" class="border">
+                    Nom de Guilde
+                </th>
+                <th scope="col" class="border">
+                    Maître
+                </th>
+                <th scope="col" class="border">
+                    Nbre membres
+                </th>
+                <th scope="col" class="border">
+                    Score
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN LISTE -->
+            <tr>
+                <th scope="row" class="border">
+                    {GUILDS.LISTE.CLASSEMENTS}
+                </th>
+                <td class="border">
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1">[{GUILDS.LISTE.G_NAME}]</span>
+                        <span class="ml-1">{GUILDS.LISTE.LOGO}</span>
+                    </div>
+                </td>
+                <td class="border">
+                    <a href="/FichePersonnage/{GUILDS.LISTE.MAITRE}" title="Afficher la fiche personnage">{GUILDS.LISTE.MAITRE}</a> [{GUILDS.LISTE.LEVEL}] 
+                </td>
+                <td class="border">
+                    {GUILDS.LISTE.NBR_MEMBRE}
+                </td>
+                <td class="border">
+                    {GUILDS.LISTE.SCORE}
+                </td>
+            </tr>
+            <!-- END LISTE -->
+        </tbody>
+    </table>
+</div>
+<!-- END GUILDS -->

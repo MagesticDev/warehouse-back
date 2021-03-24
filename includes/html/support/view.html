@@ -1,0 +1,98 @@
+<!-- BEGIN IF_IS_CONNECTE -->
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> SUPPORT TECHNIQUE</h1>
+            <a href="/Support" class="btn btn-success">Retour aux tickets</a>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-4 mt-2">
+                <h3><i class="far fa-arrow-alt-square-right"></i> {TITRE}</h3> 
+                <ul class="list-group">
+                    <li><i class="fal fa-arrow-square-right"></i> N° ticket : #{ID}</li>
+                    <li><i class="fal fa-arrow-square-right"></i> Type du ticket : {TYPE}</li>
+                    <li><i class="fal fa-arrow-square-right"></i> Statut du ticket :  
+                        <!-- BEGIN OUVERT -->
+                        <strong class="text-info"><i class="fal fa-folder-open"></i> Ouvert</strong>
+                        <!-- END OUVERT -->
+                        <!-- BEGIN RESOLU -->
+                        <strong class="text-success"><i class="fal fa-check-square"></i> Résolu</strong>
+                        <!-- END RESOLU -->
+                        <!-- BEGIN FERMER -->
+                        <strong class="text-danger"><i class="fal fa-window-close"></i> Fermé</strong>
+                        <!-- END FERMER -->
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- BEGIN REPONSES -->
+            <div class="bg-custom border row mt-1 w-100">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="row p-0">
+                        <div class="col-xl-2 col-lg-2 col-md-2 p-0">
+                            <!-- BEGIN IF_ADMIN -->
+                            <div class="bg-danger p-1 mt-2 w-100 text-center">
+                                Administrateur
+                            </div>
+                            <!-- END IF_ADMIN -->
+                            <!-- BEGIN IF_JOUEUR -->
+                            <div class="bg-success p-1 mt-2 w-100 text-center">
+                                Joueur
+                            </div>
+                            <!-- END IF_JOUEUR -->
+                            <!-- BEGIN IF_JOUEUR_VIP -->
+                            <div class="bg-warning p-1 mt-2 w-100 text-center">
+                                Joueur VIP
+                            </div>
+                            <!-- END IF_JOUEUR_VIP -->
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 p-0">
+                            <div class="d-flex align-items-center justify-content-end mt-2">
+                                <small class="ml-2 mt-1">{IF_IS_CONNECTE.REPONSES.DATE}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mt-2"/>
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-2 p-2">
+                            <div>
+                                <img class="d-none  d-lg-block d-xl-block avatar-full" src="{IF_IS_CONNECTE.REPONSES.AVATAR}" />   
+                                <strong class="d-block mt-2">{IF_IS_CONNECTE.REPONSES.PSEUDO}</strong>
+                                <p class="m-0 pt-1">{IF_IS_CONNECTE.REPONSES.DATE}</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 border-left position-relative">
+                            <div class="w-100 content-forum">
+                                {IF_IS_CONNECTE.REPONSES.TEXTE}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END REPONSES -->
+        </div>
+        <div class="row p-4 w-100">
+            <form action="{URL}" id="formulaire" class="w-100" method="POST" novalidate>
+                <hr />
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-1 mt-4 mb-4">
+                    <h3><i class="far fa-arrow-alt-square-right"></i> Répondre au ticket</h3> 
+                    <p>Votre ticket doit être compréhensible (pas de SMS, pas d'abus de majuscule ou de ponctuation).</p>
+                </div>
+                <!-- BEGIN EDITEUR -->
+                {IF_IS_CONNECTE.EDITEUR.WYSIWYG}
+                <!-- END EDITEUR -->
+            </form>
+        </div>
+   </div>
+</section>
+<!-- END IF_IS_CONNECTE -->
+<!-- BEGIN IF_PAS_CONNECTE -->
+<script  type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function(event) {	
+        document.getElementById('Login').style.display='block';
+        document.getElementById('Login').classList.add('show');
+        document.getElementsByClassName('fa-times')[0].classList.add('d-none');
+        document.getElementsByClassName('container')[0].innerHTML ='<div class="modal-backdrop fade show"></div>';
+    });
+</script>
+<!-- END IF_PAS_CONNECTE -->

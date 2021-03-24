@@ -1,0 +1,59 @@
+<div class="row m-0 p-0">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-0 mb-3">
+        <div class="table-responsive">
+            <table class="table bg-light border table-borderless">
+                <thead>
+                    <tr class="border">
+                        <th colspan="7" class="text-center">
+                            {TITRE}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Lun
+                        </th>
+                        <th>
+                            Mar
+                        </th>
+                        <th>
+                            Mer
+                        </th>
+                        <th>
+                            Jeu
+                        </th>
+                        <th>
+                            Ven
+                        </th>
+                        <th>
+                            Sam
+                        </th>
+                        <th>
+                            Dim
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- BEGIN JOUR -->
+                    <tr>
+                        <!-- BEGIN NUMERO -->
+                        {JOUR.NUMERO.DAYS}
+                        <!-- END NUMERO -->
+                    </tr>
+                    <!-- END JOUR -->
+                </tbody>
+            </table>
+        </div>
+        <!-- BEGIN NOT_EVENTS -->
+           <div class="bg-light p-4 border">
+               Aucun event prévu pour ce jour
+           </div> 
+        <!-- END NOT_EVENTS -->
+        <!-- BEGIN IF_EVENTS -->
+        <div class="table-responsive">
+            <table class="table bg-light border">
+                <thead>
+                    <th colspan="3">{IF_EVENTS.DATE}</th>
+                </thead>
+         <!-- END IF_EVENTS -->
+    </div>
+</div>

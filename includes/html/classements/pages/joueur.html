@@ -1,0 +1,68 @@
+<!-- BEGIN TOPJOUEURS -->
+<div class="table-responsive">
+    <table class="table bg-light border">
+        <thead>
+            <tr>
+                <th scope="col" class="border">
+                    #
+                </th>
+                <th scope="col" class="border">
+                    Pseudo
+                </th>
+                <th scope="col" class="border">
+                    Classe
+                </th>
+                <th scope="col" class="border">
+                    Guilde
+                </th>
+                <th scope="col" class="border">
+                    [G/SG] - [H/SH] - [E/SE] 
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN LISTE -->
+            <tr>
+                <th class="border">
+                    {TOPJOUEURS.LISTE.RANKING}
+                </th>
+                <td class="border">
+                    <a href="/FichePersonnage/{TOPJOUEURS.LISTE.PSEUDO}" title="Afficher la fiche personnage">{TOPJOUEURS.LISTE.PSEUDO}</a>
+                </td>
+                <td class="border">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="/Guide/Classe-{TOPJOUEURS.LISTE.LINK_CLASSE}" class="mr-1" title="Guide des classes">{TOPJOUEURS.LISTE.CLASSE}</a>
+                        <img width="25" src="{TOPJOUEURS.LISTE.IMAGE_CLASSE}" alt="Logo classe {TOPJOUEURS.LISTE.CLASSE}" class="ml-1" />
+                    </div>
+                </td>
+                <td class="border">
+                    <!-- BEGIN IF_GUILDE -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="mr-1">[{TOPJOUEURS.LISTE.IF_GUILDE.GNAME}]</span>
+                        <span class="ml-1">{TOPJOUEURS.LISTE.IF_GUILDE.GLOGO}</span>
+                    </div>
+                    <!-- END IF_GUILDE -->
+                    <!-- BEGIN IF_PAS_GUILDE -->
+                        Aucune
+                    <!-- END IF_PAS_GUILDE -->
+                </td>
+                <td class="border">
+                    <div class="d-block">
+                        <span class="badge badge-primary badge-pill"><strong>G [{TOPJOUEURS.LISTE.GENERATION}]</strong></span>
+                        <span class="badge badge-danger badge-pill"><strong>SG [{TOPJOUEURS.LISTE.SUPER_GENERATION}]</strong></span>
+                    </div>
+                    <div class="d-block">
+                        <span class="badge badge-primary badge-pill"><strong>H [{TOPJOUEURS.LISTE.HERITAGE}]</strong></span>
+                        <span class="badge badge-danger badge-pill"><strong>SH [{TOPJOUEURS.LISTE.SUPER_HERITAGE}]</strong></span>
+                    </div>
+                    <div class="d-block">
+                        <span class="badge badge-primary badge-pill"><strong>E [{TOPJOUEURS.LISTE.EVOLUTION}]</strong></span>
+                        <span class="badge badge-danger badge-pill"><strong>SE [{TOPJOUEURS.LISTE.SUPER_EVOLUTION}]</strong></span>
+                    </div>
+                </td>
+            </tr>
+            <!-- END LISTE -->
+        </tbody>
+    </table>
+</div>
+<!-- END TOPJOUEURS -->

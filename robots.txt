@@ -1,0 +1,13 @@
+User-Agent:*
+Disallow: /logs/
+Disallow: /cache/
+Disallow: /classes/
+Disallow: /FTP/
+Disallow: /includes/
+Disallow: /websocket/
+Disallow: /_banip.txt
+Disallow: /.htaccess
+Disallow: /auths.php
+Disallow: /favicon.ico
+Disallow: /index.php
+Sitemap: https://magestic.eu/sitemap.xml 

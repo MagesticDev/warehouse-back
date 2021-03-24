@@ -1,0 +1,119 @@
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Statistiques de Magestic</h1>
+        </div>
+        <div class="row">
+            <div class="col-xl-7 col-lg-6 col-md-5 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                <div class="table-responsive">
+                    <table class="table bg-light border">
+                        <thead>
+                            <tr>
+                                <th class="border" colspan="2">
+                                    <h4 class="m-0 text-center">
+                                        Statistiques
+                                    </h4>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border">Comptes : </td>
+                                <td class="border">{NB_COMPTES}</td>
+                            </tr>
+                            <tr>
+                                <td class="border">Personnages : </td>
+                                <td class="border">{NB_PERSOS}</td>
+                            </tr>
+                            <tr>
+                                <td class="border">Guildes : </td>
+                                <td class="border">{NB_GUILDES}</td>
+                            </tr>
+                            <tr>
+                                <td class="border">Nombre de connectés : </td>
+                                <td class="border">{NB_CO}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table bg-light border">
+                        <thead>
+                            <tr>
+                                <th class="border" colspan="2">
+                                    <h4 class="m-0 text-center">
+                                        Serveurs
+                                    </h4>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- BEGIN SERVEUR -->
+                            <tr>
+                                <td class="border">
+                                    {SERVEUR.ETAT}
+                                </td>
+                                <td class="border">{SERVEUR.NOM}</td>
+                            </tr>
+                            <!-- END SERVEUR -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-6 col-md-7 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                {CALENDRIER}
+                <div class="table-responsive">
+                    <table class="table bg-light border">
+                        <thead>
+                            <tr>
+                                <th class="border">Evenement</th>
+                                <th class="border">Prochain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border">Blood castle : </td>
+                                <td class="border">
+                                    <div id="BC"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border">Devil Square : </td>
+                                <td class="border">
+                                    <div id="DS"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border">Chaos castle : </td>
+                                <td class="border">
+                                    <div id="CC"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    function compteur_event(id, s) {
+        x = s;
+        x2 = x % 3600;
+        nbh = (x - x2) / 3600;
+        nbs = x2 % 60;
+        nbm = (x2 - nbs) / 60;
+        document.getElementById(id).innerHTML = nbh + ":" + nbm + ":" + nbs;
+        
+        if(s == 1) {
+            if(id == "DS" || id == "CC") {
+                setTimeout("compteur_event('" + id + "', 7200); ", 1000);
+            } else {
+                setTimeout("compteur_event('" + id + "', 3600); ", 1000);
+            }
+        } else {
+            setTimeout("compteur_event('" + id + "', " + (s - 1) + "); ", 1000);
+        }
+    }
+    compteur_event('BC', {COMPTEUR_BC});
+    compteur_event('DS', {COMPTEUR_DS});
+    compteur_event('CC', {COMPTEUR_CC});
+</script>

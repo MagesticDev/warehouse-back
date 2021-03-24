@@ -1,0 +1,73 @@
+<!-- BEGIN IF_IS_CONNECTE -->
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 mb-4">
+        <div class="title w-100 d-flex justify-content-between align-items-center flex-wrap pl-4 pr-4 m-0">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1 class="w-100 m-0 mr-2"><i class="fas fa-helmet-battle"></i> Nouveau sujet section {SECTION}</h1>
+                <a href="{URL_RETOUR}" class="btn btn-success">Retour</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2 mb-4">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-1 mt-2 mb-4 ml-3 mr-3">
+            <h3><i class="far fa-arrow-alt-square-right"></i> COMMENCER UNE DISCUSSION</h3> 
+            <p>Avant de poster un sujet, assurez-vous qu'il n'éxiste pas déjà.</p>
+        </div>
+        <form action="{URL}" id="formulaire" method="POST" novalidate>
+            <div class="row mt-1">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="titre_sujet"><i class="fal fa-arrow-alt-square-right"></i></span>
+                        </div>
+                        <input value="{TITRE}" type="text" class="form-control" name="titre" placeholder="Titre du sujet (10 caractères minimum)*" aria-label="titre" aria-describedby="titre_sujet" required="true">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="description"><i class="fal fa-arrow-alt-square-right"></i></span>
+                        </div>
+                        <input value="{DESCRIPTION}" type="text" class="form-control" name="description" placeholder="Description du sujet (10 caractères minimum)*" aria-label="description" aria-describedby="description" required="true">
+                    </div>
+                    <!-- BEGIN IF_ADMIN -->
+                    <div class="form-group">
+                        <label for="type">Type du sujet</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" ><i class="fab fa-typo3"></i></span>
+                            </div>
+                            <select id="type" name="type" class="form-control">
+                                <option value="normal" selected>Sujet normal (par défaut)</option>
+                                <option value="postit">Sujet post-it</option>
+                                <option value="annonce">Sujet annonce</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bg-light p-3">
+                         <div class="form-group form-check">
+                            <input type="checkbox" name="isVerouiller" value="1" class="form-check-input" id="verouiller">
+                            <label class="form-check-label text-danger" for="verouiller">Vérouiller le sujet</label>
+                        </div>
+                        <div class="form-group form-check mb-0">
+                            <input type="checkbox" name="isRegle" value="1" class="form-check-input" id="regler">
+                            <label class="form-check-label text-success" for="regler">Régler le sujet</label>
+                        </div>
+                    </div>
+                   
+                    <!-- END IF_ADMIN -->
+                </div>
+            </div>
+            {WYSIWYG}
+        </form>
+    </div>
+</section>
+<!-- END IF_IS_CONNECTE -->
+<!-- BEGIN IF_PAS_CONNECTE -->
+<script  type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function(event) {	
+        document.getElementById('Login').style.display='block';
+        document.getElementById('Login').classList.add('show');
+        document.getElementsByClassName('fa-times')[0].classList.add('d-none');
+        document.getElementsByClassName('container')[0].innerHTML ='<div class="modal-backdrop fade show"></div>';
+    });
+</script>
+<!-- END IF_PAS_CONNECTE -->

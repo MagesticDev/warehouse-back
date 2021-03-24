@@ -1,0 +1,238 @@
+<section>
+    <div class="row position-relative">
+        <h1 class="title mt-4 mb-0 pl-4 w-100"><i class="fas fa-helmet-battle"></i> Magestic.eu</h1>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 bg-span pl-3 pr-3 pb-3 pt-2">
+            <!-- BEGIN NEWS -->
+            <!-- BEGIN LISTE -->
+            <!-- BEGIN IF_IS_ADMIN -->
+            <div class="position-relative">
+            <!-- END IF_IS_ADMIN -->
+                <a href="/Forum/section-news-16/sujet-news-{NEWS.LISTE.ID}" title="Lire la new" class="card bgNews{NEWS.LISTE.BG} news-accueil border mt-1">
+                    <div class="filter-hover"></div>
+                    <div class="card-body position-relative">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- BEGIN ANNONCE -->
+                            <span class="bg-primary text-white p-2"><i class="fas fa-megaphone"></i> Annonce</span>
+                            <!-- END ANNONCE -->
+                            <!-- BEGIN POST_IT -->
+                            <span class="bg-warning text-white p-2"><i class="fal fa-file-alt"></i> Post-it</span>
+                            <!-- END POST_IT -->
+                            <!-- BEGIN NORMAL -->
+                            <span class="bg-success text-white p-2">Normal</span>
+                            <!-- END NORMAL -->
+                            <span class="text-white"><i class="fal fa-eye"></i> {NEWS.LISTE.NBR_LU}</span>
+                        </div>
+                        <p class="card-text news-text">
+                            <span class="pb-1 d-block titre_news">{NEWS.LISTE.TITRE}</span>
+                            <span>{NEWS.LISTE.DESCRIPTION}</span>
+                            <small class="d-block mt-2"><i class="fas fa-calendar-alt"></i> Le {NEWS.LISTE.DATE}</small>
+                        </p>
+                    </div>
+                </a>
+            <!-- BEGIN IF_IS_ADMIN -->
+                <form class="position-absolute btn-NewsAdmin" action="/Forum/section-news-16/sujet-news-{NEWS.LISTE.ID}" method="POST">
+                    <a  class="btn btn-warning" href="/Forum/section-news-16/sujet-news-{NEWS.LISTE.ID}/modifier-reponse-{NEWS.LISTE.IDR}"><i class="fas fa-edit"></i></a>
+                    <input type="hidden" name="deleteAll" value="{NEWS.LISTE.ID}" />
+                    <button title="Supprimer le sujet" type="submit" class="btn btn-link bg-danger">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- END IF_IS_ADMIN -->
+            <script type="application/ld+json">
+                {
+                    "@context" : "http://schema.org",
+                    "@type" : "Article",
+                    "headline" : "Nouveautés de Magestic",
+                    "name" : "{NEWS.LISTE.TITRE}",
+                    "author" : "Magestic.eu",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://{URL_ABSOLUTE}"
+                    },
+                    "publisher" : {
+                        "@type" : "Organization",
+                        "name" : "Magestic",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "name": "Magestic",
+                            "width": "34",
+                            "height": "55",
+                            "url": "https://{URL_ABSOLUTE}/themes/assets/images/logo.png"
+                        }
+                    },
+                    "datePublished" : "{NEWS.LISTE.DATE}",
+                    "dateModified" : "{NEWS.LISTE.DATE}",
+                    "image" : "https://{URL_ABSOLUTE}/themes/assets/images/bgNews{NEWS.LISTE.BG}.jpg",
+                    "articleSection" : "<!-- BEGIN ANNONCE -->Annonce<!-- END ANNONCE --><!-- BEGIN POST_IT -->Post-it<!-- END POST_IT --><!-- BEGIN NORMAL -->Normal<!-- END NORMAL -->",
+                    "url" : "https://{URL_ABSOLUTE}/Forum/section-news-16/sujet-news-{NEWS.LISTE.ID}"
+                }
+            </script>
+            <!-- END LISTE -->
+            <!-- END NEWS -->
+
+            <!-- BEGIN IF_IS_CONNECTE --> 
+                <!-- BEGIN IS_ADMIN -->
+                 <hr/>
+                    <div class="w-100">
+                        <a href="/Forum/section-les_nouveauty_es-16/Nouveau" class="btn btn-success"><i class="fas fa-newspaper"></i> Ajouter une new</a>
+                    </div>
+                <!-- END IS_ADMIN -->
+            <!-- END IF_IS_CONNECTE --> 
+        </div>
+        
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 bg-span pl-3 pr-3 pb-3 pt-2">
+            <!-- BEGIN IF_PAS_CONNECTE -->   
+            <h3 class="title m-0 mt-1"><i class="fas fa-helmet-battle"></i> Connexion</h3>
+            <div class="block mb-4">
+                <form action="/Connexion" method="POST">
+                    <div class="form-group">
+                        <label for="login"><i class="fas fa-user"></i> Login</label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder="Nom de compte*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-key"></i> Password</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe" required>
+                    </div>
+                    <input type="submit" value="Connexion" class="btn btn-danger" />
+                    <hr />
+                    <a href="/Inscription" class="btn btn-primary">Inscription</a>
+                    <a href="/Pass" class="btn btn-info">Password perdu ?</a>
+                </form>
+            </div>
+            <!-- END IF_PAS_CONNECTE -->  
+            <!-- BEGIN IF_IS_CONNECTE -->  
+            <div class="title mt-1 d-flex justify-content-between align-items-center">
+                <h3 class="m-0"><i class="fas fa-helmet-battle"></i> Bonjour {IF_IS_CONNECTE.PSEUDO}</h3>
+                <!-- BEGIN IS_ADMIN -->
+                <a class="btn btn-danger" href="/Administration"><i class="fas fa-user"></i> Admin</a>
+                <!-- END IS_ADMIN -->
+            </div>
+            <div class="block mb-4">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-2 col-md-2 d-none d-md-block d-lg-block d-xl-block">
+                        <img class="avatar" src="{IF_IS_CONNECTE.AVATAR}" width="100%" />
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                        <a class="d-block" href="/Compte"><i class="fas fa-user"></i> Mon compte</a>
+                        <a class="d-block" href="/Compte/Personnages"><i class="fas fa-gamepad"></i> Mes personnages</a>
+                        <hr/>
+                        <a class="d-block" href="/Deconnexion"><i class="fas fa-power-off"></i> Déconnexion</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END IF_IS_CONNECTE --> 
+            <h3 class="title m-0"><i class="fas fa-helmet-battle"></i> Serveur</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Magestic
+                    <!-- BEGIN ON -->
+                    <span class="badge badge-success badge-pill">Online</span>
+                    <!-- END ON -->
+                    <!-- BEGIN OFF -->
+                    <span class="badge badge-danger badge-pill">Offline</span>
+                    <!-- END OFF -->
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Comptes<span class="badge badge-primary badge-pill">{NBR_COMPTE}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">En ligne<span class="badge badge-primary badge-pill">{ONLINE}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Total des visites<span class="badge badge-primary badge-pill">{TOTAL_VISITE}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Visiteur aujourd'hui<span class="badge badge-primary badge-pill">{TODAY_VISITE}</span></li>
+            </ul>
+            <!-- BEGIN NEWPOST -->
+            <h3 class="title m-0"><i class="fas fa-helmet-battle"></i> Forum</h3>
+            <div class="list-group mb-4">
+                <!-- BEGIN LISTE -->
+                <a title="Accès au sujet sur le forum Magestic" href="/Forum/section-{NEWPOST.LISTE.SECTION}-{NEWPOST.LISTE.ID_SECTION}/sujet-{NEWPOST.LISTE.SUJET}-{NEWPOST.LISTE.ID_SUJET}" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <span>
+                            <img alt="Nouveau post sur le Forum" class="avatar border" src="{NEWPOST.LISTE.AVATAR}" />
+                        </span>
+                        <span class="ml-4">
+                            <div class="d-flex flex-column justify-content-start">
+                                    <span class="d-block">{NEWPOST.LISTE.DERNIER_MESSAGE}</span>
+                                    <span>
+                                        <i class="fas fa-axe-battle mr-1"></i> {NEWPOST.LISTE.TITRE}
+                                    </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-clock mr-1"></i> {NEWPOST.LISTE.DATE}
+                            </div>
+                        </span>
+                    </div>
+                </a>
+                <!-- END LISTE -->
+            </div>
+            <!-- END NEWPOST -->
+            <!-- BEGIN INSCRITS -->
+            <h3 class="title m-0"><i class="fas fa-helmet-battle"></i> Derniers inscrits</h3>
+            <div class="list-group">
+                <!-- BEGIN LISTE -->
+                <a title="Afficher le profil joueur" href="/Profil/{INSCRITS.LISTE.PSEUDO}" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <span>
+                            <img alt="Nouvelle inscription de {INSCRITS.LISTE.PSEUDO}" class="avatar border" title="{INSCRITS.LISTE.AVATAR}" src="{INSCRITS.LISTE.AVATAR}"  />
+                        </span>
+                        <span class="ml-4">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-axe-battle mr-1"></i> {INSCRITS.LISTE.PSEUDO}
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-clock mr-1"></i> Inscription le {INSCRITS.LISTE.DATE}
+                            </div>
+                        </span>
+                    </div>
+                </a>
+                <!-- END LISTE -->
+            </div>
+            <!-- END INSCRITS -->
+        </div>
+    </div>
+    <!-- BEGIN TOP20 -->
+    <hr/>
+    <div class="row">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4">
+            <h3 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Top 20 classements</h3>
+            <a href="/Classements" title="Classement des joueurs" class="btn btn-danger">Classements</a>
+        </div>
+        
+        <div class="bg-span col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <p class="pt-2 mt-2 w-100 text-center">Classement des 10 meilleurs joueurs {DATE_CLASSEMENTS}</p>
+            <div class="row m-4">
+                <div class="owl-carousel">
+                    <!-- BEGIN LISTE -->
+                    <div class="item">
+                        <div class="card w-100">
+                            <div class="card-body d-flex justify-content-between">
+                                <img src="{TOP20.LISTE.IMAGE_CLASSE}" class="border w-auto" title="Classements des joueurs {DATE_CLASSEMENTS}" alt="Classements des joueurs {DATE_CLASSEMENTS}">
+                                {TOP20.LISTE.CLASSE}
+                            </div>
+                            <h5 class="card-title m-3 d-flex justify-content-between">
+                                <span>
+                                   <i class="fas fa-helmet-battle"></i> {TOP20.LISTE.PSEUDO} 
+                                </span>
+                                <span class="bg-success puce-forum rounded-circle d-flex align-items-center justify-content-center">{TOP20.LISTE.RANKING}</span>
+                            </h5>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Level :<span class="badge badge-primary badge-pill">{TOP20.LISTE.LEVEL}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Master Level : <span class="badge badge-primary badge-pill">{TOP20.LISTE.MASTER_LEVEL}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Renaissance :<span class="badge badge-primary badge-pill">{TOP20.LISTE.RENAISSANCE}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Génération :<span class="badge badge-primary badge-pill">{TOP20.LISTE.GENERATION}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Héritage :<span class="badge badge-primary badge-pill">{TOP20.LISTE.HERITAGE}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Évolution :<span class="badge badge-primary badge-pill">{TOP20.LISTE.EVOLUTION}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Super Génération :<span class="badge badge-primary badge-pill">{TOP20.LISTE.SUPER_GENERATION}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Super Héritage :<span class="badge badge-primary badge-pill">{TOP20.LISTE.SUPER_HERITAGE}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Super Évolution :<span class="badge badge-primary badge-pill">{TOP20.LISTE.SUPER_EVOLUTION}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Force :<span class="badge badge-primary badge-pill">{TOP20.LISTE.STRENGTH}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Agilité :<span class="badge badge-primary badge-pill">{TOP20.LISTE.AGILITY}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Vitalité :<span class="badge badge-primary badge-pill">{TOP20.LISTE.VITALITY}</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Energie :<span class="badge badge-primary badge-pill">{TOP20.LISTE.ENERGY}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END LISTE -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END TOP20 -->
+</section>
+            

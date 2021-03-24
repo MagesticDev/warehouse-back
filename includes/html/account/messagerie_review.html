@@ -1,0 +1,60 @@
+<div class="row bg-light">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="row p-0">
+            <div class="col-xl-2 col-lg-2 col-md-2 p-0">
+                <!-- BEGIN IF_ADMIN -->
+                <div class="bg-danger p-1 mt-2 w-100 text-center">
+                    Administrateur
+                </div>
+                <!-- END IF_ADMIN -->
+                <!-- BEGIN IF_JOUEUR -->
+                <div class="bg-success p-1 mt-2 w-100 text-center">
+                    Joueur
+                </div>
+                <!-- END IF_JOUEUR -->
+                <!-- BEGIN IF_JOUEUR_VIP -->
+                <div class="bg-warning p-1 mt-2 w-100 text-center">
+                    Joueur VIP
+                </div>
+                <!-- END IF_JOUEUR_VIP -->
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 p-0">
+                <div class="d-flex align-items-center justify-content-end mt-2">
+                    <small class="ml-2">{DATE}</small>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-2"/>
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-2  p-2">
+                <div>
+                    <img class="d-none  d-lg-block d-xl-block avatar-full" src="{AVATAR}" /> 
+                    <strong class="d-block mt-2">{PSEUDO}</strong>
+                    <p class="m-0 pt-1">Envoyé le {DATE}</p>
+                    <div class="d-none d-md-block d-lg-block d-xl-block">
+                        <hr class="mt-1 mb-1" />
+                        <h6>Émetteur</h6>
+                        <a class="d-block" href="/FichePersonnage/{GAMEID}">{GAMEID}</a>
+                        <hr class="mt-1 mb-1" />
+                        <h6>Recepteur</h6>
+                        <a class="d-block" href="/FichePersonnage/{GAMEID2}">{GAMEID2}</a>
+                        <hr class="mt-1 mb-1" />
+                    </div>
+                    <!-- BEGIN ONLINE -->
+                    <h6 class="text-success">En ligne</h6>
+                    <!-- END ONLINE --> 
+                    <!-- BEGIN OFFLINE --> 
+                    <h6 class="text-danger">Hors ligne</h6>
+                    <!-- END OFFLINE --> 
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 border-left position-relative">
+                <h6>{TITRE}</h6>
+                <hr class="p-0 mb-3 mt-0" /> 
+                <div class="w-100 content-forum">
+                    {CONTENU}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

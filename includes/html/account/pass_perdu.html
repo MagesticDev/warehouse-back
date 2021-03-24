@@ -1,0 +1,86 @@
+<!-- BEGIN IF_PAS_CONNECTE -->
+<div class="PasswordAjaxProcess"></div>
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4 p-0">
+        <h1 class="title m-0 pl-4"><i class="fas fa-helmet-battle"></i> Réinitialisation du mot de passe</h1>
+        <div class="row bg-span">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4 mb-4">
+                <form action="{URL}" id="urlAjax" data-url="{URL}" class="bg-light border pt-4 pb-4 PasswordAjax" method="POST">
+                    <!-- BEGIN RESTORE_EMAIL -->
+                    <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">Votre adresse email</label>
+                        <div class="col-md-6">
+                            <input type="email" id="email" placeholder="Adresse email*" class="form-control" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="captcha" class="col-md-4 col-form-label text-md-right">
+                            <img  src="/../auths.php" id="image_de_verif" alt="Image de verification" name="img" title="Image de verification" />
+                            <a class="auths ml-1" href="#" title="Recharger l'image de vérification..."><i class="fas fa-sync-alt"></i></a>
+                        </label>
+                        <div class="col-md-6">
+                            <input type="text" id="captcha" class="form-control" placeholder="Recopier les entités*" name="captcha" required>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-center">
+                        <label class="col-md-4 col-form-label text-md-right">
+                            <img src="/../themes/assets/images/loading.gif" class="loading-ajax d-none" width="32" />
+                        </label>
+                        <div class="col-md-6">
+                            <input type="submit" id="loading-ajax" class="btn btn-danger" value="Valider"/>
+                        </div>
+                    </div>
+                    <!-- END RESTORE_EMAIL -->
+                    <!-- BEGIN NEW_PASSWORD -->
+                    <div class="form-group row">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">Password max[20]</label>
+                        <div class="col-md-6">
+                            <input type="password" id="password" placeholder="Nouveau password*" maxlength="20" name="password" class="form-control" required>
+                        </div>
+                    </div>
+    
+                    <div class="form-group row">
+                        <label for="Confirmepassword" class="col-md-4 col-form-label text-md-right">Confirmer le password</label>
+                        <div class="col-md-6">
+                            <input type="password" id="Confirmepassword" maxlength="20" placeholder="Confirmer le nouveau password*" name="passwordCheck" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row align-items-center">
+                        <label for="captcha" class="col-md-4 col-form-label text-md-right">
+                            <img  src="/../auths.php" id="image_de_verif" alt="Image de verification" name="img" title="Image de verification" />
+                            <a class="auths ml-1" href="#" title="Recharger l'image de vérification..."><i class="fas fa-sync-alt"></i></a>
+                        </label>
+                        <div class="col-md-6">
+                            <input type="text" id="captcha" class="form-control" placeholder="Recopier les entités*" name="captcha" required>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex align-items-center">
+                        <label class="col-md-4 col-form-label text-md-right">
+                            <img src="/../themes/assets/images/loading.gif" class="loading-ajax d-none" width="32" />
+                        </label>
+                        <div class="col-md-6">
+                            <input type="submit" id="loading-ajax" class="btn btn-danger" value="Valider"/>
+                        </div>
+                    </div>
+                    <!-- END NEW_PASSWORD -->
+                </form>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4 mb-4">
+                <h5><i class="far fa-arrow-alt-square-right"></i> Informations complémentaires</h5>
+                <p>Traitement des informations via ce formulaire.</p>
+                <p class="bg-light p-4 border">Les informations recueillies font l’objet d’un traitement informatique destiné à fournir et sécuriser l'accès au jeu et au site internet. Conformément à la loi "informatique et libertés" du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en envoyant un ticket via la section contact de notre site internet. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.</p>
+                <h5><i class="far fa-arrow-alt-square-right"></i> Liens utiles</h5>
+                <ul class="list-group mb-4 nav">
+                    <li class="list-group-item d-flex justify-content-between align-items-center nav-item"><a class="nav-link" href="/Reglements"><i class="fas fa-arrow-square-right"></i> Règlements</a></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center nav-item"><a class="nav-link" href="/Conditions"><i class="fas fa-arrow-square-right"></i> Conditions d'utilisation</a></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center nav-item"><a class="nav-link" href="/Politiques"><i class="fas fa-arrow-square-right"></i> Politique d'accès</a></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center nav-item"><a class="nav-link" href="/Paiements"><i class="fas fa-arrow-square-right"></i> Paiements & Sécurité</a></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center nav-item"><a class="nav-link" href="/Faq"><i class="fas fa-arrow-square-right"></i> F.A.Q</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END IF_PAS_CONNECTE -->

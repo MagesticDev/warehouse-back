@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <title>{TITRE}</title>
+        <meta name="description" content="{DESCRIPTION}"/> 
+        <meta property="og:title" content="{TITRE}"/>
+        <meta property="og:description" content="{DESCRIPTION}"/> 
+		<meta property="og:type" content="SportsTeam" />
+		<meta property="og:url" content="{URL}" />
+		<meta property="og:site_name" content="Magestic.eu MuOnline Francophone"/>
+        <meta property="og:image" content="https://{URL_ABSOLUTE}/themes/assets/images/logo.png" />
+
+        <meta name="revisit-after" content="15 days" />
+        <meta name="reply-to" content="webmaster@magestic.eu" />
+        <meta name="author" content="Magestic" />
+        <meta name="Copyright" content="PUBLISHED BY ⓒ Magestic Inc. ALL RIGHTS RESERVED." />
+
+        <link rel="canonical" href="{URL}"/>
+        <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="/../assets/css/_main.css" media="all" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" media="none" onload="if(media!='all')media='all'" href="/../themes/assets/fontAwesome/css/all.min.css">
+        <link rel="stylesheet" media="none" onload="if(media!='all')media='all'" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+        <link type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="/../assets/css/_responsive.css" media="all" rel="stylesheet">
+    </head>
+    <body>
+        <main class="container">
+            <section class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+                    <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+                        <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i>  Vous êtes banni !</h1>
+                    </div>
+                    <!-- BEGIN BAN -->
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                            <div class="bg-light p-4">
+                                <!-- BEGIN MESSAGE_IP_BAN_HACK -->
+                                <h5><i class="far fa-arrow-alt-square-right"></i>  Le piratage est passible de prison et d'amendes !</h5>
+                                <strong>
+                                    Les faits commis par des hackers, ou pirates informatiques, sont des délits pénaux bien précis.
+                                    D'après le Code pénal,
+                                    « le fait d'accéder ou de se maintenir, frauduleusement dans tout ou partie d'un système de traitement automatisé de données »,
+                                    c'est-à-dire par exemple s'introduire sur un site Web privé pour y copier des photos ou récupérer des documents ainsi que des informations, est puni par la loi. 
+                                    « Ces contrevenants risquent un an d'emprisonnement et 15 000 € d'amende.
+                                    En cas de suppression ou de modification des données, les peines encourues sont de deux ans d'emprisonnement et/ou de 30000 € d'amende. »
+                                </strong>
+                                <!-- END MESSAGE_IP_BAN_HACK -->
+                                <!-- BEGIN MESSAGE_IS_BANNI -->
+                                <h5><i class="far fa-arrow-alt-square-right"></i>  {BAN.MESSAGE_IS_BANNI.DATE}</h5>
+                                <strong>
+                                    {BAN.MESSAGE_IS_BANNI.MESSAGE}
+                                </strong>
+                                <hr/>
+                                <strong class=" d-block mt-2">
+                                    Si vous pensez que ceci est une erreur de jugement et que vous aimeriez avoir plus de détails contactez-nous !
+                                    <ul class="mt-2 pl-2">
+                                        <li>
+                                            Par Mail : webmaster@magestic.eu
+                                        </li>
+                                        <li>
+                                            Via Facebook : <a href="https://www.facebook.com/magestic.eu/">https://www.facebook.com/magestic.eu/</a>
+                                        </li>
+                                    </ul>
+                                </strong>
+                                <!-- END MESSAGE_IS_BANNI -->
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                            <ul class="list-group mb-4">
+                                <!-- BEGIN DESCRIPTION_IP_BAN_HACK -->
+                                <li class="list-group-item d-flex flex-column">
+                                    {BAN.DESCRIPTION_IP_BAN_HACK.DATE}
+                                    <span class="d-block">{BAN.DESCRIPTION_IP_BAN_HACK.DESC}</span>
+                                    <strong class="d-block text-warning">{BAN.DESCRIPTION_IP_BAN_HACK.PAGE}</strong>
+                                </li>
+                                <!-- END DESCRIPTION_IP_BAN_HACK -->
+                                <!-- BEGIN DESCRIPTION_IS_BANNI -->
+                                <li class="list-group-item d-flex flex-column">
+                                    {BAN.DESCRIPTION_IS_BANNI.DATE}
+                                    <span class="d-block">Vous avez été banni par <strong class="text-danger">{BAN.DESCRIPTION_IS_BANNI.AUTEUR}</strong></span> 
+                                </li>
+                                <!-- END DESCRIPTION_IS_BANNI -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END BAN -->
+                </div>
+            </section>
+        </main>
+        <video autoplay="false" muted loop id="background">
+            <source src="/../themes/assets/images/Background/background3.mp4" type="video/mp4">
+        </video>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

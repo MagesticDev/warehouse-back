@@ -1,0 +1,40 @@
+<!-- BEGIN IF_IS_CONNECTE -->
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+            <h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> Messagerie</h1>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                <ul class="list-group mb-4">
+                    <a href="/Compte/Messagerie" class="list-group-item list-group-item-action">
+                        <span><i class="fas fa-home"></i> Accueil des messages</span>
+                    </a>
+                    <a href="/Compte/Messagerie/Nouveau" class="list-group-item list-group-item-action">
+                        <span><i class="fas fa-comment-alt"></i> Nouveau message</span>
+                    </a>
+                    <a href="/Compte/Messagerie/Envoyes" class="list-group-item list-group-item-action">
+                        <span><i class="fas fa-arrow-square-right"></i> Messages envoyés</span>
+                    </a>
+                    <a href="/Compte/Messagerie/Archive" class="list-group-item list-group-item-action">
+                        <span><i class="fas fa-archive"></i> Archive</span>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12 pl-3 pr-3 pb-3 pt-2">
+                {PAGE}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END IF_IS_CONNECTE -->
+<!-- BEGIN IF_PAS_CONNECTE -->
+<script  type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function(event) {	
+        document.getElementById('Login').style.display='block';
+        document.getElementById('Login').classList.add('show');
+        document.getElementsByClassName('fa-times')[0].classList.add('d-none');
+        document.getElementsByClassName('container')[0].innerHTML ='<div class="modal-backdrop fade show"></div>';
+    });
+</script>
+<!-- END IF_PAS_CONNECTE -->

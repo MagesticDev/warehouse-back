@@ -1,0 +1,53 @@
+<!-- BEGIN MESSAGE -->
+<form action="{MESSAGE.URL}" method="POST"> 
+    <div class="table-responsive">
+        <table class="table table-striped table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        #
+                    </th>
+                    <th scope="col">
+                        Sujet du message
+                    </th>
+                    <th scope="col">
+                        Destinataire
+                    </th>
+                    <th scope="col">
+                        Expéditeur
+                    </th>
+                    <th scope="col">
+                        Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody> 
+                <!-- BEGIN MESSAGE_LISTE -->
+                <tr>
+                    <th scope="row">
+                        #{MESSAGE.MESSAGE_LISTE.ID}
+                    </th>
+                    <td>
+                        <a href="/Compte/Messagerie/Review-{MESSAGE.MESSAGE_LISTE.URL_ENCODE}" title="Lire le message" class="text-white">{MESSAGE.MESSAGE_LISTE.ISREAD} {MESSAGE.MESSAGE_LISTE.SUJET}</a>
+                    </td>
+                    <td>
+                        {MESSAGE.MESSAGE_LISTE.DESTINATAIRE}
+                    </td>
+                    <td>
+                        <a href="/FichePersonnage/{MESSAGE.MESSAGE_LISTE.EXPEDITEUR}" title="Fiche personnage {MESSAGE.MESSAGE_LISTE.EXPEDITEUR}" class="text-white">{MESSAGE.MESSAGE_LISTE.EXPEDITEUR}
+                    </td>
+                    <td>
+                        {MESSAGE.MESSAGE_LISTE.DATE}
+                    </td>
+                </tr>
+                <!-- END MESSAGE_LISTE -->
+            </tbody>
+        </table>
+    </div>
+</form>
+<!-- END MESSAGE -->
+<!-- BEGIN IF_PAS_MESSAGE -->
+    <div class="bg-light p-4">
+        <h6 class="m-0">Vous n'avez envoyé aucun message</h6>
+    </div>
+<!-- END IF_PAS_MESSAGE -->

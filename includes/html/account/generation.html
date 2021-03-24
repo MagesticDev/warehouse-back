@@ -1,0 +1,100 @@
+<!-- BEGIN GENERATION -->
+<section class="row">
+	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 mb-4 bg-span">
+		<div class="title w-100 d-flex justify-content-between align-items-center pl-4 pr-4 m-0">
+			<h1 class="w-100 m-0"><i class="fas fa-helmet-battle"></i> {GENERATION.ACTION}</h1>
+		</div>
+		<div class="row">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-3 bg-light mt-4 mb-1 border">
+				<h5><i class="far fa-arrow-alt-square-right"></i> Pré-requis pour effectuer un(e) {GENERATION.ACTION} sur le personnage [{GENERATION.PSEUDO}]</h5>
+				<div class="d-flex justify-content-between align-items-center">
+					<div>
+						<strong class="d-block">
+							Renaissance : {GENERATION.RESETS}
+						</strong>
+						<strong class="d-block">
+							Level : {GENERATION.LEVEL}
+						</strong>
+						<strong class="d-block">
+							Zen : {GENERATION.ZEN}
+						</strong>
+						<strong class="d-block">
+							{GENERATION.ACTION} : {GENERATION.NUMBER_GENERATION} < {GENERATION.TOTAL_GENERATION}
+						</strong>
+						<strong class="d-block">
+							Force : 32000
+						</strong>
+						<strong class="d-block">
+							Agilité : 32000
+						</strong>
+						<strong class="d-block">
+							Vitalité : 32000
+						</strong>
+						<strong class="d-block">
+							Energie : 32000
+						</strong>
+					</div>
+					<div>
+						<img src="{GENERATION.IMG_CLASSE}" />
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-3 bg-light mt-1 mb-1 border">
+				<h5><i class="far fa-arrow-alt-square-right"></i> Formule pour l'action {GENERATION.ACTION}</h5>
+				<div class="d-flex justify-content-between align-items-center">
+					<div>
+						<strong class="d-block">
+							Golds : {GENERATION.GOLDS}
+						</strong>
+						<strong class="d-block">
+							Point bonus à ajouter : {GENERATION.GENERATION_POINT}
+						</strong>
+						<strong class="d-block">
+							Reset des skills : {GENERATION.CLEAR_SKILL}
+						</strong>
+						<strong class="d-block">
+							Reset de l'inventaire : {GENERATION.CLEAR_INV}
+						</strong>
+						<strong class="d-block">
+							Reset des statistiques du personnage : {GENERATION.CLEAR_STAT}
+						</strong>
+					</div>
+					<div>
+						<img src="{GENERATION.IMG_CLASSE}" />
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-3 bg-light mt-1 mb-1 border">
+				<h5 class="text-center"><i class="far fa-arrow-alt-square-right"></i> Vous recevrez le set ci-dessous lors de votre {GENERATION.ACTION}.</h5>
+				{GENERATION.INVENTORY}  
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-3 bg-light mt-1 mb-4 border">
+				<!-- BEGIN IF_OK -->
+				<h5><i class="far fa-arrow-alt-square-right"></i> Informations supplémentaires...</h5>
+                <strong class="d-block">
+                    Une fois l'action {GENERATION.ACTION} effectuée, aucun retour en arrière sera possible, cette action est irréversible.<br/>
+                    <span class="text-warning">Enlever votre équipement placez-le n'importe où pourvu qu'il ne soit pas équipé (juste pour le personnage faisant l'action {GENERATION.ACTION}).</span>
+				</strong>
+				<form action="{GENERATION.URL}" method="POST" class="mt-2">
+                   <div class="form-check mt-3 mb-3">
+                        <input type="hidden" name="pseudo" value="{GENERATION.PSEUDO}" />
+                        <input type="checkbox" name="accepte" class="form-check-input" id="accepte">
+                        <label class="form-check-label" for="accepte">J'ai pris connaissance des conditions et je valide la Génération pour le personnage <strong>{GENERATION.PSEUDO}</strong></label>
+                    </div>
+                    <button type="submit" name="Generation" class="btn btn-primary mt-2">Valider</button> 
+				</form>
+				<!-- END IF_OK -->
+				<!-- BEGIN IF_PAS_OK -->
+				<h5><i class="far fa-arrow-alt-square-right"></i> Vous n'avez pas assez de zens pour effectuer l'action {GENERATION.ACTION}</h5>
+				<strong class="d-block mt-1">
+					Votre solde : {GENERATION.NBR_ZEN} zen(s)
+				</strong>
+				<strong class="d-block mt-2">
+					Zen requis : {GENERATION.REQUIS_ZEN} zen(s)
+				</strong>
+				<!-- END IF_PAS_OK -->
+            </div>
+		</div>
+	</div>
+</section>
+<!-- END GENERATION -->

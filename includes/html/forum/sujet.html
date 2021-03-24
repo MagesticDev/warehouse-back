@@ -1,0 +1,239 @@
+<section class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 mt-4 bg-span">
+        <div class="title w-100 d-flex justify-content-between align-items-center flex-wrap pl-4 pr-4 m-0">
+            <div class="d-flex">
+                <h1 class="w-100 m-0 mr-2"><i class="fas fa-helmet-battle"></i> {TITRE_SUJET}</h1>
+                <!-- BEGIN ANNONCE -->
+                <span class="text-white rounded-circle bg-primary puce-forum d-flex align-items-center justify-content-center">
+                    <i class="fas fa-megaphone"></i>
+                </span>
+                <!-- END ANNONCE -->
+                <!-- BEGIN POST_IT -->
+                <span class="text-white rounded-circle bg-warning puce-forum d-flex align-items-center justify-content-center">
+                    <i class="fal fa-file-alt"></i>
+                </span>
+                <!-- END POST_IT -->
+                <!-- BEGIN NORMAL -->
+                <span class="text-white rounded-circle bg-success puce-forum d-flex align-items-center justify-content-center">
+                    <i class="fas fa-comment"></i>
+                </span>
+                <!-- END NORMAL -->
+            </div>
+            <!-- BEGIN REPONDRE -->
+            <a href="#r" class="btn btn-success">Répondre</a>
+            <!-- END REPONDRE -->
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 mb-4">
+                <div class="mt-4 mb-4">
+                    <h2 class="m-0"><i class="far fa-arrow-alt-square-right"></i> {DESCRIPTION_SUJET}</h2>
+                    <!-- BEGIN PASTILLE -->
+                    <div class="mt-1">
+                        <!-- BEGIN FERME -->
+                        <div class="d-block p-2 pl-0">
+                            <span class="text-danger bg-light p-2 border">
+                                <i class="fas fa-square-full"></i> Sujet fermé
+                            </span>
+                        </div>
+                        <!-- END FERME -->
+                        <!-- BEGIN REGLE -->
+                        <div class="d-block p-2 pl-0">
+                            <span class="text-success bg-light p-2 border">
+                                <i class="fas fa-square-full"></i> Sujet résolu
+                            </span>
+                        </div>
+                        <!-- END REGLE -->
+                    </div>
+                    <!-- END PASTILLLE -->
+                    <!-- BEGIN IF_PAS_CONNECTE -->
+                        <p class="mt-1">Vous devez être connecté pour répondre à ce sujet.</p>
+                    <!-- END IF_PAS_CONNECTE -->
+                </div>
+                <!-- BEGIN SUJET -->
+                <div class="bg-custom border row mt-1" id="r{SUJET.ID_REPONSE}">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="row p-0">
+                            <div class="col-xl-2 col-lg-2 col-md-2 p-0">
+                                <!-- BEGIN IF_ADMIN -->
+                                <div class="bg-danger p-1 mt-2 w-100 text-center">
+                                    Administrateur
+                                </div>
+                                <!-- END IF_ADMIN -->
+                                <!-- BEGIN IF_JOUEUR -->
+                                <div class="bg-success p-1 mt-2 w-100 text-center">
+                                    Joueur
+                                </div>
+                                <!-- END IF_JOUEUR -->
+                                <!-- BEGIN IF_JOUEUR_VIP -->
+                                <div class="bg-warning p-1 mt-2 w-100 text-center">
+                                    Joueur VIP
+                                </div>
+                                <!-- END IF_JOUEUR_VIP -->
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 p-0">
+                                <div class="d-flex align-items-center justify-content-end mt-2">
+                                    <!-- BEGIN EDITER -->
+                                        <a title="Editer la réponse" href="{SUJET.EDITER.URL}/modifier-reponse-{SUJET.EDITER.ID_REPONSE}" class="btn btn-link bg-info d-block">
+                                            <i class="fal fa-edit"></i>
+                                        </a>
+                                    <!-- END EDITER -->
+                                    <!-- BEGIN ADMIN -->
+                                    <!-- BEGIN IF_LOCKED -->
+                                    <form class="d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="verrouiller" value="1" />
+                                        <button title="Vérouiller le sujet" type="submit" class="btn btn-link bg-warning">
+                                            <i class="fas fa-lock"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END IF_LOCKED -->
+                                    <!-- BEGIN IF_UNLOCKED -->
+                                    <form class="d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="deverrouiller" value="1" />
+                                        <button title="Dévérouiller le sujet" type="submit" class="btn btn-link bg-success">
+                                            <i class="fas fa-unlock"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END IF_UNLOCKED -->
+
+                                    <!-- BEGIN IF_REGLER -->
+                                    <form class="d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="regler" value="1" />
+                                        <button title="Regler le sujet" type="submit" class="btn btn-link bg-success">
+                                            <i class="fas fa-check-square"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END IF_REGLER -->
+                                    <!-- BEGIN IF_DEREGLER -->
+                                    <form class="d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="deregler" value="1" />
+                                        <button title="Deregler le sujet" type="submit" class="btn btn-link bg-warning">
+                                            <i class="far fa-square"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END IF_DEREGLER -->
+
+                                    <form class="d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="deleteAll" value="{ID_SUJET}" />
+                                        <button title="Supprimer le sujet" type="submit" class="btn btn-link bg-danger">
+                                            <i class="fas fa-eraser"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END ADMIN -->
+                                    <!-- BEGIN IF_NOT_FIRST_ADMIN -->
+                                    <form class="mr-2 d-block" action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" method="POST">
+                                        <input type="hidden" name="deleteReponse" value="{SUJET.ID_REPONSE}" />
+                                        <button title="Supprimer la réponse" type="submit" class="btn btn-link bg-danger">
+                                            <i class="fas fa-eraser"></i>
+                                        </button>
+                                    </form>
+                                    <!-- END IF_NOT_FIRST_ADMIN -->
+                                    <small class="ml-2">{SUJET.DATE}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2"/>
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-2 col-md-2  p-2">
+                                <div>
+                                    <img class="d-none  d-lg-block d-xl-block avatar-full" src="{SUJET.AVATAR}" /> 
+                                    <strong class="d-block mt-2">{SUJET.AUTEUR}</strong>
+                                    <p class="m-0 pt-1 d-none d-md-block d-lg-block d-xl-block">Messages : {SUJET.NBR_MESSAGE}</p>
+                                    <p class="m-0 pt-1">Posté le {SUJET.DATE}</p>
+                                    <div class="d-none d-md-block d-lg-block d-xl-block">
+                                        <hr class="mt-1 mb-1" />
+                                        <h6>Personnage(s)</h6>
+                                        <!-- BEGIN LISTE_PERSOS -->
+                                        <a class="d-block" href="/FichePersonnage/{SUJET.LISTE_PERSOS.GAMEID}">{SUJET.LISTE_PERSOS.GAMEID}</a>
+                                        <!-- END LISTE_PERSOS -->
+                                        <hr class="mt-1 mb-1" />
+                                    </div>
+                                    <!-- BEGIN ONLINE -->
+                                    <h6 class="text-success">En ligne</h6>
+                                    <!-- END ONLINE --> 
+                                    <!-- BEGIN OFFLINE --> 
+                                    <h6 class="text-danger">Hors ligne</h6>
+                                    <!-- END OFFLINE --> 
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 border-left position-relative">
+                                <div class="w-100 content-forum">
+                                    {SUJET.CONTENU}
+                                </div>
+                                <hr/>
+                                <div class="signature p-3 mb-2 border">
+                                    <div class="content-signature">
+                                        {SUJET.SIGNATURE}
+                                    </div>
+                                </div>
+                                {SUJET.EDIT}
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <script type="application/ld+json">
+                    {
+                        "@context" : "http://schema.org",
+                        "@type" : "Article",
+                        "name" : "{TITRE_SUJET_JSON}",
+                        "datePublished" : "{SUJET.DATE}",
+                        "image" : "{SUJET.URL}/{SUJET.AVATAR}",
+                        "headline" : "{SUJET.AUTEUR_JSON}",
+                        "articleBody" : " {SUJET.CONTENU_JSON}",
+                        "url" : "{URL}",
+                        "author" : "{SUJET.AUTEUR_JSON}",
+                        "dateModified" : "{SUJET.DATE}",
+                        "mainEntityOfPage": {
+                             "@type": "WebPage",
+                             "@id": "{url}"
+                        },
+                        "publisher" : {
+                            "@type" : "Organization",
+                            "name" : "Magestic",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Magestic",
+                                "width": "34",
+                                "height": "55",
+                                "url": "{SUJET.URL}/themes/assets/images/logo.png"
+                            }
+                        }
+                    }
+                </script>
+                <!-- END SUJET -->
+                <div class="mt-2 w-100 d-flex justify-content-end">
+                    {PAGINATION}  
+                </div>
+                
+                <div id="r"></div>
+                <!-- BEGIN IF_IS_CONNECTE -->
+                    <!-- BEGIN IF_AFFICHER_REPONDRE -->
+                    <form action="/Forum/section-{URL_ID_SECTION}-{ID_SECTION}/sujet-{URL_ID_SUJET}-{ID_SUJET}" id="formulaire" method="POST" novalidate>
+                        <hr />
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-1 mt-4 mb-4">
+                            <h3><i class="far fa-arrow-alt-square-right"></i> Répondre au sujet</h3> 
+                            <p>Le flood du forum est interdit & est passible d'une sanction.</p>
+                        </div>
+                        {IF_IS_CONNECTE.IF_AFFICHER_REPONDRE.WYSIWYG}
+                    </form>
+                    <!-- END IF_AFFICHER_REPONDRE -->
+                <!-- END IF_IS_CONNECTE -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-1 mt-4 mb-4">
+                    <h5><i class="far fa-arrow-alt-square-right"></i> Veuillez nous signaler toute violation de nos chartes, comme :</h5>
+                    <p>
+                        <span class="d-block">
+                            <strong class="text-warning">Menaces de violences. Nous les prenons très au sérieux et alerterons les autorités compétentes.</strong>
+                            Les messages contenant des informations personnelles sur d’autres joueurs. 
+                            <strong class="text-warning">
+                                Ceci inclut notamment les adresses postales et e-mail, les numéros de téléphone et les photos et vidéos inconvenantes.
+                            </strong>
+                            Harcèlement et discriminations.
+                            <strong class="text-warning">Nous ne tolérons pas ces comportements.</strong>
+                            <a class="text-danger" href="/Reglements/Conduites">Code de Conduite sur les forums </a>.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            

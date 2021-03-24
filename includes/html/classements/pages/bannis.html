@@ -1,0 +1,51 @@
+<!-- BEGIN BANNIS -->
+<div class="table-responsive">
+    <table class="table bg-light border">
+        <thead>
+            <tr>
+                <th scope="col" class="border">
+                    #
+                </th>
+                <th scope="col" class="border">
+                    Pseudo
+                </th>
+                <th scope="col" class="border">
+                    Jusqu'au
+                </th>
+                <th scope="col" class="border">
+                    Par
+                </th>
+                <th scope="col" class="border">
+                    Raison
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BEGIN LISTE -->
+        <tr>
+            <th scope="row" class="border">
+                {BANNIS.LISTE.CLASSEMENTS}
+            </th>
+            <td class="border">
+                <a href="/FichePersonnage/{BANNIS.LISTE.PSEUDO}" title="Afficher la fiche personnage">{BANNIS.LISTE.PSEUDO}</a>
+            </td>
+            <td class="border">
+                {BANNIS.LISTE.EXPIRE}
+            </td>
+            <td class="border">
+                <strong class="text-danger">{BANNIS.LISTE.AUTEUR}</strong>
+            </td>
+            <td class="border">
+                {BANNIS.LISTE.RAISON}
+            </td>
+        </tr>
+        <!-- END LISTE -->
+        </tbody>
+    </table>
+</div>
+<!-- END BANNIS -->
+<!-- BEGIN NOT_BANNIS -->
+    <div class="bg-light p-4">
+        <h6 class="m-0">Aucun joueur bannis !</h6>
+    </div>
+<!-- END NOT_BANNIS -->

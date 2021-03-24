@@ -1,0 +1,61 @@
+<style>
+
+  svg, rect {
+    width:100% !important;
+    fill: #1a191d;
+    color:#FFFFFF;
+  }
+
+  g text {
+    fill: #9E9E9E;
+    font-size:12px;
+  }
+  #counter {
+    font-size:72px;
+  }
+  .gapi-analytics-data-chart .google-visualization-table-table, #main-chart-container {
+      background: #1a191d;
+  }
+  .gapi-analytics-data-chart .gapi-analytics-data-chart-styles-table-td {
+      border-left: 1px solid black;
+      background: #1a191d;
+  }
+
+  .gapi-analytics-data-chart .gapi-analytics-data-chart-styles-table-th,
+  .gapi-analytics-data-chart .gapi-analytics-data-chart-styles-table-tr-even:last-child, .gapi-analytics-data-chart .gapi-analytics-data-chart-styles-table-tr-odd:last-child {
+      border-bottom: 1px solid black;
+  }
+ 
+</style>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pl-1 pr-1 pb-2">
+        <div class="p-2 ml-2 mr-2 bg-light" id="auth-button"></div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-1" >
+                <div id="timeline"></div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-1" >
+                <div id="chart-1-container"></div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-1" >
+                <div class="bg-light p-2 h-100">
+                    <div class="d-flex flex-column align-items-center justify-content-center h-100 w-100">
+                        <p class="legende">Utilisateurs en ligne (temps réel)</p>
+                        <h2 id="counter" class="run-animation">0</h2> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-1" >
+                <div class="h-100" id="main-chart-container"></div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-1" >
+                <div id="breakdown-chart-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="/../assets/js/analytics.js"></script>
+
+
+
