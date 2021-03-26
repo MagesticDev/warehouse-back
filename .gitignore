@@ -1,3 +1,4 @@
 cache/*
+erreurs/*
 classes/MYSQL.class.php
 classes/UTILS.class.php
