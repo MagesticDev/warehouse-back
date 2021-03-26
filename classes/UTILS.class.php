@@ -512,11 +512,11 @@ class UTILS {
 		$mail->isSMTP();                                    // Set mailer to use SMTP
 		$mail->SMTPAuth = true;  // Authentification SMTP active
 		$mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
-		$mail->Host = '';
+		$mail->Host = 'ssl0.ovh.net';
 		$mail->Port = 465;
-		$mail->Username = '';
-		$mail->Password = '';
-		$mail->SetFrom('', '');
+		$mail->Username = 'webmaster@magestic.eu';
+		$mail->Password = '574722cf7f';
+		$mail->SetFrom('webmaster@magestic.eu', 'Magestic.eu');
 		$mail->Subject = $subject;
 		$mail->Body =  self::Encode($body);
         $mail->AddAddress($to);
