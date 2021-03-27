@@ -3,3 +3,4 @@ erreurs/*
 classes/MYSQL.class.php
 classes/UTILS.class.php
 consts/constantes.php
+tchat.log
