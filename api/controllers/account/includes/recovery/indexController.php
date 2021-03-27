@@ -68,9 +68,8 @@
                         );
                         
                         $url = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].(API['PORT_FRONT'] ? API['PORT_FRONT'] : '').'/Recovery/'.base64_encode($resultAccount->password.'::'.time().'::'.$resultAccount->email);
-                        $content = UTILS::tplMail($resultAccount->email, $resultAccount->login, false, $url, 'passwordRecovery');
-                        UTILS::MAIL($resultAccount->email, 'Mot de passe perdu', $content, MAIL_HEADER); 
-
+                        $mail = new SendMail($resultAccount->email, 'Mot de passe perdu', $resultAccount->login, false, $url, 'passwordRecovery');
+                        $mail->send();
                         
                     }else{
                         $message = array(

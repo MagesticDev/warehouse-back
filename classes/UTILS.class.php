@@ -33,7 +33,7 @@ class UTILS {
 		return self::$ipAddress;
 	}
 
-	public function initiales($nom){
+	public static function initiales($nom){
         $nom_initiale = ''; // déclare le recipient
         $n_mot = explode(" ",$nom);
         foreach($n_mot as $lettre){
@@ -98,41 +98,6 @@ class UTILS {
         }
     }
 
-    public static function logoGuilde($nomguilde, $xy = 3) {
-        $q = MSSQL::query('SELECT [G_Mark] FROM [Guild] WHERE [G_Name]=\''.$nomguilde.'\'');
-        $code = sqlsrv_fetch_object($q);
-        $code        = urlencode(bin2hex($code->G_Mark));
-        $color[0]    = ''; $color[1]='#000000'; $color[2]='#8c8a8d'; $color[3]='#ffffff'; $color[4]='#fe0000'; $color[5]='#ff8a00'; $color[6]='#ffff00'; $color[7]='#8cff01'; $color[8]='#00ff00'; $color[9]='#01ff8d'; $color['a']='#00ffff'; $color['b']='#008aff'; $color['c']='#0000fe'; $color['d']='#8c00ff'; $color['e']='#ff00fe'; $color['f']='#ff008c'; 
-        $i        = 0; 
-        $ii        = 0;
-        $it         = '<table style=\'width: '.(8*$xy).'px;height:'.(8*$xy).'px\' border=0 cellpadding=0 cellspacing=0><tr>';
-        
-        while ($i<64) {
-            $place    = $code{$i};
-            $i++;
-            $ii++;
-            $add    = $color[$place];
-            $it     .= '<td class=\'guildlogo\' style=\'background-color: '.$add.';\' width=\''.$xy.'\' height=\''.$xy.'\'></td>';
-    
-            if ($ii==8) { 
-                $it .=  '</tr>'; 
-                if ($ii != 64) $it .='<tr>';
-                $ii =0; 
-            }
-        }
-        
-        $it .= '</table>';
-        return $it;
-    }
-
-    public static function mssql_real_escape_string($string) {
-        $chars = array('NULL', '\x00', '\n', '\r', '\\', "'", '"', '\x1a');
-        $escapes = array('\NULL', '\\x00', '\\n', '\\r', '\\\\', "''", '\"', '\\x1a');
-        return str_replace($chars, $escapes, $string);
-    }
-
-  
-    
 	public static function regexUrl($string){
 		
 		//The Regular Expression filter
@@ -367,122 +332,6 @@ class UTILS {
         return number_format($n);
     }
 
-	public static function Classe($code, $img = false, $initial = false) {
-		$x = Array(
-			0 => array('wiz.gif', 'Dark Wizard (I)', 'wiz'),
-			1 => array('wiz.gif', 'Soul Master (II)', 'wiz'),
-			2 => array('wiz.gif', 'Grand Master (III)', 'wiz'),
-            3 => array('wiz.gif', 'Grand Master (III)', 'wiz'),
-			
-			16 => array('dk.gif', 'Dark knight (I)', 'dk'),
-			17 => array('dk.gif', 'Black Knight (II)', 'dk'),
-			18 => array('dk.gif', 'Blade Master (III)', 'dk'),
-            19 => array('dk.gif', 'Blade Master (III)', 'dk'),
-			
-			 
-			32 => array('elf.gif', 'Elf (I)', 'elf'),
-			33 => array('elf.gif', 'Muse Elf (II)', 'elf'),
-			34 => array('elf.gif', 'High Elf (III)', 'elf'),
-			35 => array('elf.gif', 'High Elf (III)', 'elf'),
-
-			80 => array('sum.gif', 'Summoner (I)', 'sum'),
-			81 => array('sum.gif', 'Bloody Summoner (II)', 'sum'),
-			82 => array('sum.gif', 'Dimension Master (III)', 'sum'),
-			83 => array('sum.gif', 'Dimension Master (III)', 'sum'),
-			84 => array('sum.gif', 'Dimension Master (III)', 'sum'),
-
-			48 => array('mg.gif', 'Magic Gladiator (II)', 'mg'),
-			49 => array('mg.gif', 'Dual Master (III)', 'mg'),
-			50 => array('mg.gif', 'Dual Master (III)', 'mg'),
-			51 => array('mg.gif', 'Dual Master (III)', 'mg'),
-
-			64 => array('dl.gif', 'Dark Lord (II)', 'dl'),
-			65 => array('dl.gif', 'Lord Emperor (III)', 'dl'),
-			66 => array('dl.gif', 'Lord Emperor (III)', 'dl'),
-			67 => array('dl.gif', 'Lord Emperor (III)', 'dl'),
-			
-			96 => array('rf.gif', 'Rage Fighter (II)', 'rf'),
-			97 => array('rf.gif', 'First Master (III)', 'rf'),
-			98 => array('rf.gif', 'First Master (III)', 'rf'),
-			99 => array('rf.gif', 'First Master (III)', 'rf'),
-			
-			112 => array('gl.gif', 'Grow Lancer (I)', 'gl'),
-			113 => array('gl.gif', 'Mirage Lancer (II)', 'gl'),
-			114 => array('gl.gif', 'Shining Lancer (III)', 'gl'),
-			115 => array('g6.gif', 'Shining Lancer (III)', 'gl'),
-			
-			
-		);
-		
-		if($img){
-			return $_SERVER['HTTP_HOST'].'/../includes/assets/images/class/'.$x[$code][0];
-		}else if(!$initial){
-			return $x[$code][1];
-		}else{
-            return $x[$code][2];
-        }
-	}
-
-	public static function nomMap($numero) {
-		switch($numero) {
-			case 0 : return 'Lorencia';
-			case 1 : return 'Dungeon';
-			case 2 : return 'Devias';
-			case 3 : return 'Noria';
-			case 4 : return 'Lost tower';
-			case 5 : return 'Exile';
-			case 6 : return 'Stadium';
-			case 7 : return 'Atlans';
-			case 8 : return 'Tarkan';
-			case 9 : return 'Devil Square';
-			case 10 : return 'Icarus';
-			case 11 : return 'Blood castle 1';
-			case 12 : return 'Blood castle 2';
-			case 13 : return 'Blood castle 3';
-			case 14 : return 'Blood castle 4';
-			case 15 : return 'Blood castle 5';
-			case 16 : return 'Blood castle 6';
-			case 17 : return 'Blood Castle 7';
-			case 18 : return 'Chaos Castle I';
-			case 19: return 'Chaos Castle II';
-			case 20 : return 'Chaos Castle III';
-			case 21 : return 'Chaos Castle IV';
-			case 22 : return 'Chaos Castle V';
-			case 23 : return 'Chaos Castle VI';
-			case 24 : return 'Kalima I';
-			case 25 : return 'Kalima II';
-			case 26 : return 'Kalima III';
-			case 27 : return 'Kalima IV';
-			case 28 : return 'Kalima V';
-			case 29 : return 'Kalima VI';
-			case 30 : return 'Valley of Loren';
-			case 31 : return 'Lands of Trial';
-			case 32 : return 'Devil Square';
-			case 33 : return 'Aida';
-			case 34 : return 'Crywolf';
-			case 35 : return 'Silent Map';
-			case 36 : return 'Kalima';
-			case 37 : return 'Kantru I';
-			case 38 : return 'Kantru II';
-			case 39 : return 'Kantru III';
-			case 40 : return 'SilentMap';
-			case 41 : return 'Barracks';
-			case 42 : return 'Refuge';
-			case 45 : case 46 : case 47 : case 48 : case 49 : case 50 : return 'Illusion Temple';
-			case 51 : return 'Elbeland';
-			case 52 : return 'Blood Castle';
-			case 53 : return 'Chaos Castle';
-			case 58 : return 'Raklion (Boss)';
-			case 60 : case 61 : case 62 : return 'Village de Santa';
-			case 63 : return 'Vulcan';
-			case 79 : return 'Loren Market';
-			case 80 : return 'Kalturan';
-			case 81 : return 'Kalturan 2';
-
-			default : return 'Map '.$numero;
-		}
-	}
-	
 	public static function GetGolds($parametre){
 		if($parametre < 10){
 			if($parametre == ''){
@@ -494,60 +343,6 @@ class UTILS {
 		}else{
 			return '[<strong class="text-success">'.$parametre.'</strong>]';
 		}
-	}
-	
-	
-	private static $phpmailer_deja_inclus = false;
-	
-	public static function MAIL($to, $subject, $body, $d = null) {
-			
-		global $phpmailer_deja_inclus;
-		if(!$phpmailer_deja_inclus) {
-			require("smtp/PHPMailerAutoload.php");
-			$phpmailer_deja_inclus = true;
-		}
-		
-		$mail = new PHPMailer;
-		//$mail->SMTPDebug = 4;                               // Enable verbose debug output
-		$mail->isSMTP();                                    // Set mailer to use SMTP
-		$mail->SMTPAuth = true;  // Authentification SMTP active
-		$mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
-		$mail->Host = 'host';
-		$mail->Port = 465;
-		$mail->Username = 'email';
-		$mail->Password = 'password';
-		$mail->SetFrom('email du site', 'Titre du site');
-		$mail->Subject = $subject;
-		$mail->Body =  self::Encode($body);
-        $mail->AddAddress($to);
-        $mail->isHTML(true);
-		if($ajax = false){
-			if(!$mail->send()) {
-				UTILS::notification('danger', 'Le message n\'a pas pu être envoyé '.$mail->ErrorInfo, false, true);
-				header('location: '.$_SERVER['REQUEST_URI']);
-				exit;
-			} else {
-				UTILS::notification('success', 'Un mail de confirmation vous a été envoyé', false, true);
-				header('location: '.$_SERVER['REQUEST_URI']);
-				exit;
-			}
-		}else{
-			if(!$mail->send()) {
-				$corpMessages = '<div class="notification">';
-				$corpMessages .= '<div class="alert alert-danger w-50 d-flex align-items-center justify-content-between" role="alert">';
-				$corpMessages .= 'Le message n\'a pas pu être envoyé '.$mail->ErrorInfo;
-				$corpMessages .= '</div>';
-				$corpMessages .= '</div>';
-				die(json_encode($corpMessages));
-			}
-		}
-	}
-    
-    public static function tplMail($email, $pseudo, $titre, $content, $tpl){
-		include('tplEmail/tplMail.class.php');
-		$template = new TPL();
-        $contenu = $template->isMail($email, $pseudo, $titre, $content, $tpl);
-		return $contenu;
 	}
 }
 

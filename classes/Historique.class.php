@@ -8,8 +8,8 @@ class Historique {
 	/*
 	 * Ouverture du fichier de logs
 	 */
-	public function __construct($fileName) {
-		$this->fileName = $fileName.'_'.date('d\-m\-Y\_H-\0\0').'.log';
+	public function __construct($fileName) { 
+		$this->fileName = $fileName;
 		$this->file = fopen($this->fileName, "a");
 	}
 	
@@ -25,6 +25,10 @@ class Historique {
 	 */
 	public function destruct() {
 		fclose($this->file);
+	}
+
+	public function unlink(){
+		unlink($this->file);
 	}
 }
 

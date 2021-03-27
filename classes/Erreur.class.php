@@ -1,7 +1,7 @@
 <?php
 
 
-class Erreur {
+class Erreur { 
 	
 	
 	private static $instance = null;
@@ -11,7 +11,7 @@ class Erreur {
 	private static $history = null;
 	
 	//texte des erreurs
-	private static $errors = '';
+	private static $errors = null;
 
 	/* singleton */
 	private function __construct() {
@@ -53,16 +53,20 @@ class Erreur {
 				$type = 'Erreur inconnue';
 				break;
 		}
+		if(isset($type)){
+			self::$errors[] = array(
+				'type' => $type,
+				'date' => date('d/m/Y à H:i:s'),
+				'file' => $errfile,
+				'line' => $errline,
+				'ip' => UTILS::getIp()
+			);
 
-		// Construction du message d'erreur
-		$text = $type.' le '.date('d/m/Y à H:i:s').' dans le fichier '.$errfile.' à la ligne '.$errline.' '.UTILS::getIp();
-		$message = '<b>'.$text."</b>\r\n<br />" . $errstr . "<br /><br />\r\n\r\n";
-
-		// On enregistre le texte de l'erreur dans la variable
-		self::$errors .= $message;
-
-		// On enregistre l'erreur dans le fichier
-		self::$history->write($message);
+			$text = $type.' le '.date('d/m/Y à H:i:s').' dans le fichier '.$errfile.' à la ligne '.$errline.' '.UTILS::getIp();
+			$message = '<b>'.$text."</b>\r\n<br />" . $errstr . "<br /><br />\r\n\r\n";
+			// On enregistre l'erreur dans le fichier
+			self::$history->write($message);
+		}
 	}
 	
 	
