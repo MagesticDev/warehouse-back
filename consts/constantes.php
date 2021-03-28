@@ -24,6 +24,13 @@
         )
     ));
 
+    define('SQL', array(
+        'DOMAIN' => 'localhost',
+        'USER' => 'root',
+        'PASSWORD' => '',
+        'BDD' => 'magestic'
+    ));
+
     define(
 		'MAIL_HEADER', 
 		"From: ".SMTP['SET_FROM']['WEBSITE']." <".SMTP['SET_FROM']['EMAIL'].">" . "\r\n
