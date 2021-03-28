@@ -7,7 +7,7 @@ class MYSQL {
 	//singleton
 	public static function query($sql) {
 		new self();
-		$base = mysqli_connect('127.0.0.1', 'root', '', 'magestic');
+		$base = mysqli_connect(SQL['DOMAIN'], SQL['USER'], SQL['PASSWORD'], SQL['BDD']);
 		
 		$base->set_charset("utf8");
 		$query = mysqli_query($base, $sql) or die (mysqli_error($base));

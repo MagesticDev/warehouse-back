@@ -24,7 +24,7 @@
         $section['hasConnected'] = true;
         $isConnecte = true;
 
-        if(USER::isAdmin()){
+        if(USER::isAdmin()){ 
             $section['isAdmin'] = true;
         }
     }
