@@ -19,7 +19,7 @@ To open consts/constantes.php
   In the folder api\controllers\tchat\includes\websocket open new terminal and execute "php -q serveur.php"
   
 # PHP
-Activate sockets extension via your php.ini
+Activate sockets extension in your php.ini
   
  
   
