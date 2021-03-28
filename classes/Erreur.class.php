@@ -59,7 +59,8 @@ class Erreur {
 				'date' => date('d/m/Y à H:i:s'),
 				'file' => $errfile,
 				'line' => $errline,
-				'ip' => UTILS::getIp()
+				'ip' => UTILS::getIp(),
+				'message' => $errstr 
 			);
 
 			$text = $type.' le '.date('d/m/Y à H:i:s').' dans le fichier '.$errfile.' à la ligne '.$errline.' '.UTILS::getIp();

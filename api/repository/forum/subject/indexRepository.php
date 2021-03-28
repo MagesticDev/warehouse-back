@@ -1,9 +1,9 @@
 <?php
 class SubjectForumRepository {
 
-    protected $id;
+    private $id = null;
 
-    public function __construct(int $id) {
+    public function __construct($id) {
         $this->id = $id;
     }
 

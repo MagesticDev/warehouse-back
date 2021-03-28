@@ -3,7 +3,7 @@ class SectionForumRepository {
 
     protected $id;
 
-    public function __construct(int $id) {
+    public function __construct($id) {
         $this->id = $id;
     }
     
