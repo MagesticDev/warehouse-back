@@ -10,7 +10,7 @@ To open consts/constantes.php
   
   # SMTP constante
   Enter your information concerning the SMTP connection (OVH or other ...).
-  This allows the sending of mail via the application.
+  This allows the sending of mail in the application.
   
   # SQL constante
   Fill in your information about the MYSQL connection.
