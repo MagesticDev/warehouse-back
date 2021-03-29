@@ -18,7 +18,7 @@ class SectionForumRepository {
     }
 
     public function pagination(){
-        return 'SELECT topic_id, id_forum FROM topics WHERE id_forum=\''. $this->$id.'\'';
+        return 'SELECT topic_id, id_forum FROM topics WHERE id_forum=\''. $this->id.'\''; 
     }
 
     public function getSubjects($pagination){

@@ -30,7 +30,7 @@ class SubjectForumRepository {
             exit;
         }
     }
-
+ 
     public function readTopic(){
         $topicRead = MYSQL::selectOneValue('SELECT count(*) FROM topics_read WHERE memb___id=\''.USER::getPseudo().'\' AND topic_id=\''.$this->id.'\'');		
         if($topicRead == 0) {
@@ -39,7 +39,7 @@ class SubjectForumRepository {
     }
 
     public function pagination(){
-        return 'SELECT id FROM responses WHERE topic_id=\''. $this->$id.'\'';
+        return 'SELECT id FROM responses WHERE topic_id=\''. $this->id.'\'';
     }
 
     public function getResponses($pagination){
