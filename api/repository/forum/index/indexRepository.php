@@ -16,6 +16,10 @@ class IndexForumRepository {
         return;
     }
 
+    public function newOrder($idCat, $newRank){
+        MYSQL::query('UPDATE categories SET position = \''.$newRank.'\' WHERE id = \''.$idCat.'\'');
+    }
+
     public function getForum($id){
         $req = MYSQL::query('SELECT
             F.id,

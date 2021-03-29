@@ -5,7 +5,17 @@
     
     if(USER::isAdmin()){
         $indexForum['isAdmin'] = true;
+        if(DATA::getPut()){
+            $put = DATA::getPut();
+            $i = 0;
+            foreach($put as $key => $value){
+                $indexForumReposiory->newOrder($value["id_cat"], $i);
+                $i++;
+            }
+            
+        }
     }
+
 
     if($indexForumReposiory->getCategories()){
         foreach($indexForumReposiory->getCategories() as $catKey => $catValue){

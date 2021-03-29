@@ -10,6 +10,10 @@ class DATA {
 	private static function dataPost(){
 		return json_decode(file_get_contents("php://input"));
 	}
+
+	public static function getPut(){
+		return json_decode(file_get_contents("php://input"), true);
+	}
 	
 	/* singleton */
 	private function __construct() {}
