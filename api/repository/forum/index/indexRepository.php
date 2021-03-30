@@ -21,7 +21,37 @@ class IndexForumRepository {
     }
 
     public function newCategorie($new, $isAdmin, $description, $position){
-        MYSQL::query('INSERT INTO categories SET title = \''.DATA::filterPut($new).'\', description = \''.DATA::filterPut($description).'\', admin = \''.($isAdmin ? 1 : 0).'\', position = \''.$position.'\'');
+        MYSQL::query('INSERT INTO categories SET title = \''.DATA::filterPut($new).'\', description = \''.DATA::filterPut($description).'\', admin = \''.(is_numeric($isAdmin) ? 1 : 0).'\', position = \''.$position.'\'');
+    }
+
+    public function newForum($titleForum, $descriptionForum, $addPositionForum, $isAdmin){
+        MYSQL::query('INSERT INTO forums 
+            (
+                title, 
+                description, 
+                rights, 
+                position,
+                id_cat,
+                topics_nbr,
+                nbr_responses,
+                last_message,
+                last_author,
+                bg
+            ) 
+            VALUES 
+            (
+                \''.DATA::filterPut($titleForum).'\', 
+                \''.DATA::filterPut($descriptionForum).'\', 
+                \''.(is_numeric($isAdmin) ? 1 : 0).'\', 
+                \''.is_numeric($addPositionForum).'\', 
+                (SELECT MAX(id) FROM categories cust),
+                0,
+                0,
+                "Par <strong><span class=\"admin\">\''.USER::getPseudo().'\'</span></strong><br />Le '.date('d/m/Y à H:i').'",
+                "'.USER::getPseudo().'",
+                "images/forum_bg.png"
+            )
+        ');
     }
 
     public function getForum($id){

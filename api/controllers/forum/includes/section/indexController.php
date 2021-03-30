@@ -37,27 +37,29 @@
     $section['pagination'] = $viewPagination;
     $subjects = $sectionForumRepository->getSubjects($pagination);
 
-    foreach($subjects as $key => $value){
-        $section['subjects'][$key] = $value;
-        switch($value['type']){
-            case 2:
-               $section['subjects'][$key]['announcement'] = true;
-            break;
-            case 1: 
-                $section['subjects'][$key]['post_it'] = true;
-            break;
-            default: $section['subjects'][$key]['normal'] = true;
-        }
+    if(isset($subjects)){
+        foreach($subjects as $key => $value){
+            $section['subjects'][$key] = $value;
+            switch($value['type']){
+                case 2:
+                $section['subjects'][$key]['announcement'] = true;
+                break;
+                case 1: 
+                    $section['subjects'][$key]['post_it'] = true;
+                break;
+                default: $section['subjects'][$key]['normal'] = true;
+            }
 
-        if(isset($isConnecte)){
-            $section['subjects'][$key]['isView'] =  $sectionForumRepository->viewSubject(USER::getPseudo(), $value['topic_id']);
-        }
+            if(isset($isConnecte)){
+                $section['subjects'][$key]['isView'] =  $sectionForumRepository->viewSubject(USER::getPseudo(), $value['topic_id']);
+            }
 
-        $section['subjects'][$key]['url'] =  UTILS::encodeNomPage($value['title']);
-        $section['subjects'][$key]['avatar'] =  UTILS::GetAvatar($value['last_author']);
-        
+            $section['subjects'][$key]['url'] =  UTILS::encodeNomPage($value['title']);
+            $section['subjects'][$key]['avatar'] =  UTILS::GetAvatar($value['last_author']);
+            
+        }
     }
-    
+
     unset($section['rights'], $section['bg']);
     echo json_encode($section);
 ?>

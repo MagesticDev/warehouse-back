@@ -9,7 +9,7 @@ class SubjectForumRepository {
 
     public function getTopic(){
         $req = MYSQL::query('SELECT 
-            topics.title, 
+            topics.title as title_topics, 
             topics.description, 
             topics.topic_id,
             topics.type,
