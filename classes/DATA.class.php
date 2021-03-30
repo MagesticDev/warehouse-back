@@ -14,6 +14,11 @@ class DATA {
 	public static function getPut(){
 		return json_decode(file_get_contents("php://input"), true);
 	}
+
+	public static function filterPut($text){
+		return self::filtrer($text, true);
+	}
+	
 	
 	/* singleton */
 	private function __construct() {}

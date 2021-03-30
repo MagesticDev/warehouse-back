@@ -20,6 +20,10 @@ class IndexForumRepository {
         MYSQL::query('UPDATE categories SET position = \''.$newRank.'\' WHERE id = \''.$idCat.'\'');
     }
 
+    public function newCategorie($new, $isAdmin, $description, $position){
+        MYSQL::query('INSERT INTO categories SET title = \''.DATA::filterPut($new).'\', description = \''.DATA::filterPut($description).'\', admin = \''.($isAdmin ? 1 : 0).'\', position = \''.$position.'\'');
+    }
+
     public function getForum($id){
         $req = MYSQL::query('SELECT
             F.id,

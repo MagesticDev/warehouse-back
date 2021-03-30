@@ -9,11 +9,19 @@
             $put = DATA::getPut();
             $i = 0;
             foreach($put as $key => $value){
-                $indexForumReposiory->newOrder($value["id_cat"], $i);
+                if($key === "addCategorie"){
+                    foreach($value as $key => $value){
+                        if(isset($value['addNameCategorie'])){
+                            $indexForumReposiory->newCategorie($value['addNameCategorie'], $value['addRightCategorie'], $value['addDescriptionCategorie'], $value['addPositionCategorie']);
+                        } 
+                    }
+                } else {                                                                                            
+                    $indexForumReposiory->newOrder($value["id_cat"], $i);
+                }
+                
                 $i++;
-            }
-            
-        }
+            } 
+        }           
     }
 
 
