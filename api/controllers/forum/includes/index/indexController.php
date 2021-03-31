@@ -10,7 +10,7 @@
 
     if($indexForumReposiory->getCategories()){
         foreach($indexForumReposiory->getCategories() as $catKey => $catValue){
-            if($catValue['admin'] != 1 OR USER::isAdmin()) {
+           if($catValue['isAdmin'] != 1 || USER::isAdmin()) {
                 $indexForum['categories'][$catKey] = $catValue;
                 if(is_array($indexForumReposiory->getForum($catValue['id_cat'])) || is_object($indexForumReposiory->getForum($catValue['id_cat']))){
                     foreach($indexForumReposiory->getForum($catValue['id_cat']) as $forumKey => $forumValue){
