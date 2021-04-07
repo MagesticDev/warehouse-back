@@ -17,11 +17,14 @@
                         $indexForum['categories'][$catKey]['forums'][$forumKey] = $forumValue;
                         $indexForum['categories'][$catKey]['forums'][$forumKey]['avatar'] =  UTILS::GetAvatar($forumValue['last_author']);
                         $indexForum['categories'][$catKey]['forums'][$forumKey]['url'] =  UTILS::encodeNomPage($forumValue['title']);
+                        if($catValue['admin'] != 1) {
+                            unset($indexForum['categories'][$catKey]['admin']);
+                        }
                     }
                 }
             }
         }
 
-        echo json_encode($indexForum);
+    echo json_encode($indexForum /*, JSON_PRETTY_PRINT*/);
     }
 ?>

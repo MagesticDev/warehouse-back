@@ -14,13 +14,13 @@
 
     define('SMTP', array(
         'PROTOCOLE' => 'ssl',
-        'HOST' => 'host.com',
+        'HOST' => 'ssl0.ovh.net',
         'PORT' => 465,
-        'USERNAME' => 'email@gmail.com or username',
-        'PASSWORD' => 'password',
+        'USERNAME' => 'webmaster@magestic.eu',
+        'PASSWORD' => '574722Cf7f',
         'SET_FROM' => array(
-            'EMAIL' => 'email@gmmail.com',
-            'WEBSITE' => 'sitename',
+            'EMAIL' => 'webmaster@magestic.eu',
+            'WEBSITE' => 'warehouse',
         )
     ));
 

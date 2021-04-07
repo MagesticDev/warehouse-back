@@ -1,5 +1,6 @@
 {
     "require": {
-        "firebase/php-jwt": "^5.2"
+        "firebase/php-jwt": "^5.2",
+        "benhall14/php-calendar": "^1.2"
     }
 }
