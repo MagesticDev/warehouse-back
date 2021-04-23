@@ -2,22 +2,22 @@
     //authentification API
     define('API', array(
         'SECRET_KEY' => '18BA608A63CE09EFA62492D98CCC00476BEA12282B6D0C882FF27A82DA43994B',
-        'AUDIENCE_CLAIM' => 'Les bouquineurs',
-        'ISSUER_CLAIM' => 'Les bouquineurs',
+        'AUDIENCE_CLAIM' => 'Warehouse',
+        'ISSUER_CLAIM' => 'Warehouse',
         'ISSUEDAT_CLAIM' => time(), // issued at
         'NOT_BEFORE_CLAIM' => time() + 10, //not before in seconds
         'EXPIRE_CLAIM' => time() + 60, // expire time in seconds,
         'PORT_FRONT' => ':4200', // supprimer lorsque le front est sur le meme domaine que le back 
-        'URL_API' => 'http://magestic.test',
+        'URL_API' => 'http://warehouse.test',
         'LANG' => 'fr'
     ));
 
     define('SMTP', array(
-        'PROTOCOLE' => 'ssl',
-        'HOST' => 'ssl0.ovh.net',
+        'PROTOCOLE' => '',
+        'HOST' => '',
         'PORT' => 465,
-        'USERNAME' => 'webmaster@magestic.eu',
-        'PASSWORD' => '574722Cf7f',
+        'USERNAME' => '',
+        'PASSWORD' => '',
         'SET_FROM' => array(
             'EMAIL' => 'webmaster@magestic.eu',
             'WEBSITE' => 'warehouse',
